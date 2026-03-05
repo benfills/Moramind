@@ -35,6 +35,9 @@
         "projectId": "b3f7476c-e4e7-4b67-a640-7b04891119bc"
       }
     },
-    "owner": "benfills"
+    "owner": "benfills",
+    "plugins": [
+      "expo-router"
+    ]
   }
 }
