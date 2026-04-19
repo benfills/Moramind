@@ -49,8 +49,9 @@ export default function StudyTime() {
     useEffect(() => {
         tickref.current = tick;
     }, [tick]);
-    if (tick >= 0) {
-    return (
+
+    if (tick <= 0) {
+      return (
       <ImageBackground source={require('/home/benfills/MobileApp/MoramindProject/Moramind/assets/images/MainWallpaper.webp')} style={styles.container} contentFit={'fill'}>
       <View style={styles.container}>
           <Text> Study Time {tick} </Text>
@@ -82,12 +83,12 @@ export default function StudyTime() {
       </ImageBackground>
     )}
     else {
-    return (
-    <ImageBackground source={require('/home/benfills/MobileApp/MoramindProject/Moramind/assets/images/MainWallpaper.webp')} style={styles.container} contentFit={'fill'}>
-    <View>
-      <Text> Rest Time </Text>
-    </View>
-    </ImageBackground>
-    )
-  }
+      return (
+      <ImageBackground source={require('/home/benfills/MobileApp/MoramindProject/Moramind/assets/images/MainWallpaper.webp')} style={styles.container} contentFit={'fill'}>
+      <View>
+        <Text> Rest Time </Text>
+      </View>
+      </ImageBackground>
+      )
+    }
 }
