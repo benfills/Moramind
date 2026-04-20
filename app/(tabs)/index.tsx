@@ -43,9 +43,8 @@ export default function StudyTime() {
         if (status === 1) {
           if (tickref.current !== 0) {
             const intervalID = setInterval(() => {
-            if (tickref.current !== 0) setTick(prev => prev - 1);
-            else if (tickref.current === 0) clearInterval(intervalID);
-            else
+            if (tickref.current !== 0) setTick(prev => prev - 1)
+            else clearInterval(intervalID)
         }, 100);
         return () => clearInterval(intervalID);
         }
@@ -107,12 +106,16 @@ export default function StudyTime() {
 
 function StartStudy() {
   return (
-    <View>
-      <Text> Start </Text>
+    <View style={styles.container2}>
+      <Text> Start Study time </Text>
     </View>
   )
 }
 
 function StartBreak() {
-  
+  return (
+    <View style={styles.container2}>
+      <Text> Start Break time </Text>
+    </View>
+  )
 }
