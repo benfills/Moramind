@@ -6,32 +6,73 @@ import { View, Text, StyleSheet, Pressable } from "react-native";
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    padding: 20,
-    backgroundColor: "#f4f4f4",
+    width: '100%',
+  },
+  overlay: {
+    flex: 1,
+    backgroundColor: "rgba(0,0,0,0.4)",
     alignItems: "center",
     justifyContent: "center",
+    padding: 20,
   },
-  container2: {
-    flex: 1
+  card: {
+    backgroundColor: 'rgba(255, 255, 255, 0.9)',
+    borderRadius: 12,
+    padding: 24,
+    width: '100%',
+    alignItems: 'center',
+    shadowColor: "#000",
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.3,
+    shadowRadius: 4.65,
+    elevation: 8,
   },
   title: {
-    fontSize: 24,
-    fontWeight: "bold",
-    color: "#333",
-    marginBottom: 10,
+    fontSize: 14,
+    fontWeight: "700",
+    color: "#666",
+    textTransform: "uppercase",
+    letterSpacing: 1.5,
+    marginBottom: 8,
   },
-  button: {
-    backgroundColor: "#ffbb00",
-    paddingVertical: 10,
-    paddingHorizontal: 15,
-    borderRadius: 4,
-    },
-  buttonText: {
+  timerValue: {
+    fontSize: 56,
+    fontWeight: "800",
+    color: "#000",
+    marginBottom: 24,
+  },
+  buttonMain: {
+    backgroundColor: "#0062ff",
+    height: 52,
+    width: '100%',
+    borderRadius: 8,
+    alignItems: "center",
+    justifyContent: "center",
+    marginBottom: 12,
+  },
+  buttonOutline: {
+    backgroundColor: "transparent",
+    height: 48,
+    width: '100%',
+    borderRadius: 8,
+    borderWidth: 1,
+    borderColor: "#0062ff",
+    alignItems: "center",
+    justifyContent: "center",
+    marginBottom: 8,
+  },
+  buttonTextMain: {
     color: "#fff",
     fontSize: 16,
-    textAlign: "center",
+    fontWeight: "600",
   },
-})
+  buttonTextOutline: {
+    color: "#0062ff",
+    fontSize: 14,
+    fontWeight: "500",
+  },
+});
+
 
 export default function StudyTime() {
     const [tick, setTick] = useState(1);
@@ -57,11 +98,12 @@ export default function StudyTime() {
     console.log("status: ", status)
     if (tick > 0) {
       return (
-      <ImageBackground source={require('/home/benfills/MobileApp/MoramindProject/Moramind/assets/images/StudyWallpaper.webp')} style={styles.container} contentFit={'fill'}>
-      <View style={styles.container}>
-          <Text> Study Time {tick} </Text>
+      <ImageBackground source={require('/home/benfills/MobileApp/MoramindProject/Moramind/assets/images/StudyWallpaper.webp')} style={styles.overlay} contentFit={'fill'}>
+      <View style={styles.card}>
+          <Text style={styles.title}> Study Time </Text>
+          <Text style={styles.timerValue}> {tick} </Text>
           <Pressable
-          style={styles.button}
+          style={styles.buttonMain}
           onPress={() => {
             if (status === 0 && tick > 0) {
               setStatus((prev) => prev + 1);
@@ -70,20 +112,26 @@ export default function StudyTime() {
             } else setStatus((prev) => prev - 1);
           }}
         >
-          <Text> Start </Text>
+          <Text style={styles.buttonTextMain}> Start Study </Text>
         </Pressable>
         <Pressable
-          style={styles.button}
-          onPress={() => setTick((prev) => prev + 60)}
-        >
-          <Text> Increase Study Time to 60</Text>
+          style={styles.buttonOutline}
+          onPress={() => setTick((prev) => prev + 60)}>
+          <Text style={styles.buttonTextOutline}> Increase Study Time to 60</Text>
         </Pressable>
         <Pressable
-          style={styles.button}
-          onPress={() => setTick((prev) => prev + 120)}
-        >
-          <Text> Increase Study Time to 120 </Text>
+          style={styles.buttonOutline}
+          onPress={() => setTick((prev) => prev + 120)}>
+          <Text style={styles.buttonTextOutline}> Increase Study Time to 120 </Text>
         </Pressable>
+      </View>
+      </ImageBackground>
+    )}
+    else {
+      return (
+      <ImageBackground source={require('/home/benfills/MobileApp/MoramindProject/Moramind/assets/images/BreakWallpaper.webp')} style={styles.container} contentFit={'fill'}>
+      <View style={styles.container}>
+        <Text style={styles.title}> Rest Time {rest} </Text>
         <Pressable>
           <Text> Increase Rest Time to 60 </Text>
         </Pressable>
@@ -92,21 +140,13 @@ export default function StudyTime() {
         </Pressable>
       </View>
       </ImageBackground>
-    )}
-    else {
-      return (
-      <ImageBackground source={require('/home/benfills/MobileApp/MoramindProject/Moramind/assets/images/BreakWallpaper.webp')} style={styles.container} contentFit={'fill'}>
-      <View style={styles.container2}>
-          <Text> Rest Time {rest} </Text>
-      </View>
-      </ImageBackground>
       )
     }
 }
 
 function StartStudy() {
   return (
-    <View style={styles.container2}>
+    <View style={styles.container}>
       <Text> Start Study time </Text>
     </View>
   )
@@ -114,7 +154,7 @@ function StartStudy() {
 
 function StartBreak() {
   return (
-    <View style={styles.container2}>
+    <View style={styles.container}>
       <Text> Start Break time </Text>
     </View>
   )
