@@ -3,139 +3,89 @@ import { useState, useEffect, useRef } from "react";
 import { View, Text, StyleSheet, Pressable } from "react-native";
 
 // Goal: Solve unstoppable tick update
-export default function StudyTime() {
+export default function Mainpage() {
   const [tick, setTick] = useState(0);
-  const [status, setStatus] = useState(0);
-  const tickref = useRef(0);
-  useEffect(() => {
-    const intervalID = setInterval(() => {
-      if (status === 1) {
-        if (tickref.current !== 0) setTick((prev) => prev - 1);
-        else clearInterval(intervalID);
-      }
-    }, 100);
-    return () => clearInterval(intervalID);
-  }, [status, tick]);
-  useEffect(() => {
-    tickref.current = tick;
-  }, [tick]);
-  if (status === 1 && tick === 0) setStatus((prev) => prev - 1);
-  if (tick > -1) {
-    return (
-      <ImageBackground
-        source={require("/home/benfills/MobileApp/MoramindProject/Moramind/assets/images/StudyWallpaper.webp")}
-        style={styles.overlay}
-        contentFit={"fill"}
-      >
-        <View style={styles.card}>
-          <Text style={styles.title}> Study Time </Text>
-          <Text style={styles.timerValue}> {tick} </Text>
-          <Pressable
-            style={styles.buttonMain}
-            onPress={() => {
-              if (status === 0 && tick > 0) {
-                setStatus((prev) => prev + 1);
-              } else if (status === 0 && tick === 0) {
-                alert("Please Set Your Timer First");
-              } else setStatus((prev) => prev - 1);
-            }}
-          >
-            <Text style={styles.buttonTextMain}> Start Study {status} </Text>
-          </Pressable>
-          <Pressable>
-            <Pressable
-              style={styles.buttonOutline}
-              onPress={() => setTick((prev) => prev + 60)}
-            >
-              <Text style={styles.buttonTextOutline}>
-                {" "}
-                Increase Study Time to 60{" "}
-              </Text>
-            </Pressable>
-          </Pressable>
-          <Pressable>
-            <Pressable
-              style={styles.buttonOutline}
-              onPress={() => setTick((prev) => prev + 120)}
-            >
-              <Text style={styles.buttonTextOutline}>
-                {" "}
-                Increase Study Time to 120{" "}
-              </Text>
-            </Pressable>
-          </Pressable>
-        </View>
-      </ImageBackground>
-    );
+  console.log(tick);
+  if (tick >= 0) {
+    return <StartStudy setter={setTick} curstate={tick} />;
   } else {
-    return (
-      <ImageBackground
-        source={require("/home/benfills/MobileApp/MoramindProject/Moramind/assets/images/BreakWallpaper.webp")}
-        style={styles.container}
-        contentFit={"fill"}
-      >
-        <View style={styles.container}>
-          <Text style={styles.title}> Rest Time {tick} </Text>
-          <Pressable>
-            <Text> Increase Rest Time to 60 </Text>
-          </Pressable>
-          <Pressable>
-            <Text> Increase Rest Time to 120 </Text>
-          </Pressable>
-        </View>
-      </ImageBackground>
-    );
+    return <StartBreak />;
   }
 }
 
 function StartStudy({
-  medium,
-  counter,
-  status,
+  setter,
+  curstate,
 }: {
-  medium: number;
-  counter: (fn: (prev: number) => number) => number;
-  status: number;
+  curstate: number;
+  setter: (fn: (prev: number) => number) => void;
 }) {
+  const [status, setStatus] = useState(0);
+  const curref = useRef(0);
+  useEffect(() => {
+    const intervalID = setInterval(() => {
+      if (status === 1) {
+        if (curref.current !== 0) setter((prev) => prev - 1);
+        else clearInterval(intervalID);
+      }
+    }, 100);
+    return () => clearInterval(intervalID);
+  }, [status, curstate]);
+  useEffect(() => {
+    curref.current = curstate;
+  }, [curstate]);
+  if (status === 1 && curstate === 0) setStatus((prev) => prev - 1);
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}> Study Time </Text>
-      <Text style={styles.timerValue}> {medium} </Text>
-      <Pressable
-        style={styles.buttonMain}
-        onPress={() => {
-          if (status === 0 && medium > 0) {
-            counter((prev) => prev + 1);
-          } else if (status === 0 && medium < 0) {
-            alert("Please Set Your Timer First");
-          } else counter((prev) => prev - 1);
-        }}
-      >
-        <Text style={styles.buttonTextMain}> Start Study </Text>
-      </Pressable>
-      <Pressable>
+    <ImageBackground
+      source={require("/home/benfills/MobileApp/MoramindProject/Moramind/assets/images/StudyWallpaper.webp")}
+      style={styles.overlay}
+      contentFit={"fill"}
+    >
+      <View style={styles.card}>
+        <Text style={styles.title}> Study Time </Text>
+        <Text style={styles.timerValue}> {curstate} </Text>
+        <Pressable
+          style={styles.buttonMain}
+          onPress={() => {
+            if (status === 0 && curstate > 0) {
+              setStatus((prev) => prev + 1);
+            } else if (status === 0 && curstate === 0) {
+              alert("Please Set Your Timer First");
+            } else setStatus((prev) => prev - 1);
+          }}
+        >
+          {status === 0 ? (
+            <Text style={styles.buttonTextMainStart}>
+              {" "}
+              Start Study {status}{" "}
+            </Text>
+          ) : (
+            <Text style={styles.buttonTextMainStart}>
+              {" "}
+              Stop Study {status}{" "}
+            </Text>
+          )}
+        </Pressable>
         <Pressable
           style={styles.buttonOutline}
-          onPress={() => counter((prev) => prev + 60)}
+          onPress={() => setter((prev: number) => prev + 60)}
         >
           <Text style={styles.buttonTextOutline}>
             {" "}
             Increase Study Time to 60{" "}
           </Text>
         </Pressable>
-      </Pressable>
-      <Pressable>
         <Pressable
           style={styles.buttonOutline}
-          onPress={() => counter((prev) => prev + 120)}
+          onPress={() => setter((prev) => prev + 120)}
         >
           <Text style={styles.buttonTextOutline}>
             {" "}
             Increase Study Time to 120{" "}
           </Text>
         </Pressable>
-      </Pressable>
-    </View>
+      </View>
+    </ImageBackground>
   );
 }
 
@@ -205,7 +155,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     marginBottom: 8,
   },
-  buttonTextMain: {
+  buttonTextMainStart: {
     color: "#fff",
     fontSize: 16,
     fontWeight: "600",
