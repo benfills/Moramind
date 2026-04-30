@@ -2,6 +2,7 @@ import { ImageBackground, Image } from "expo-image";
 import { useState, useEffect, useRef } from "react";
 import { View, Text, Pressable } from "react-native";
 
+// Goal: Solve unstoppable tick update
 export default function Mainpage() {
   const [tick, setTick] = useState(0);
   console.log(tick);
@@ -21,7 +22,6 @@ function StartStudy({
 }) {
   const [status, setStatus] = useState(0);
   const curref = useRef(0);
-
   useEffect(() => {
     const intervalID = setInterval(() => {
       if (status === 1) {
@@ -31,11 +31,9 @@ function StartStudy({
     }, 100);
     return () => clearInterval(intervalID);
   }, [status, curstate]);
-
   useEffect(() => {
     curref.current = curstate;
   }, [curstate]);
-
   if (status === 1 && curstate === 0) setStatus((prev) => prev - 1);
 
   return (
@@ -44,64 +42,37 @@ function StartStudy({
       style={{ flex: 1 }}
       contentFit={"fill"}
     >
-      <View
-        style={{
-          flex: 1,
-          alignItems: "center",
-          justifyContent: "center",
-          paddingHorizontal: 20,
-          paddingVertical: 24,
-        }}
-        className="bg-black/40"
-      >
-        <View
-          style={{ width: "100%", alignItems: "center", padding: 24 }}
-          className="rounded-2xl bg-white/90 shadow-xl"
-        >
+      <View className="flex-1 items-center justify-center bg-black/40 px-5 py-6">
+        <View className="w-full items-center rounded-2xl bg-white/90 px-6 py-8 shadow-xl elevation-8">
           <Text className="mb-3 text-xs font-bold uppercase tracking-widest text-gray-500">
             {" "}
             Study Time{" "}
           </Text>
-
-          <View
-            style={{
-              flexDirection: "row",
-              alignItems: "center",
-              justifyContent: "center",
-              marginBottom: 32,
-            }}
-          >
-            <Image
-              source={require("@/assets/images/cat.gif")}
-              style={{ width: 80, height: 80 }}
-              contentFit="contain"
-            />
-            <Text
-              style={{
-                marginHorizontal: 16,
-                fontSize: 72,
-                fontWeight: "900",
-                lineHeight: 80,
-              }}
-              className="text-black"
-            >
-              {curstate}
-            </Text>
-            <Image
-              source={require("@/assets/images/cat.gif")}
-              style={{ width: 80, height: 80 }}
-              contentFit="contain"
-            />
-          </View>
+          {status === 0 ? (
+            <View className="mb-8 flex-row items-center justify-center">
+              <Text className="mx-4 text-7xl font-black leading-none text-black">
+                {curstate}
+              </Text>
+            </View>
+          ) : (
+            <View className="mb-8 flex-row items-center justify-center">
+              <Image
+                source={require("@/assets/images/cat.gif")}
+                className="h-20 w-20"
+                contentFit="contain"
+              />
+              <Text className="mx-4 text-7xl font-black leading-none text-black">
+                {curstate}
+              </Text>
+              <Image
+                source={require("@/assets/images/cat.gif")}
+                className="h-20 w-20"
+                contentFit="contain"
+              />
+            </View>
+          )}
           <Pressable
-            style={{
-              height: 52,
-              width: "100%",
-              alignItems: "center",
-              justifyContent: "center",
-              marginBottom: 12,
-            }}
-            className="rounded-lg bg-blue-600"
+            className="mb-3 h-[52px] w-full items-center justify-center rounded-lg bg-blue-600"
             onPress={() => {
               if (status === 0 && curstate > 0) {
                 setStatus((prev) => prev + 1);
@@ -122,15 +93,9 @@ function StartStudy({
               </Text>
             )}
           </Pressable>
+
           <Pressable
-            style={{
-              height: 48,
-              width: "100%",
-              alignItems: "center",
-              justifyContent: "center",
-              marginBottom: 8,
-            }}
-            className="rounded-lg border border-blue-600 bg-transparent"
+            className="mb-2 h-12 w-full items-center justify-center rounded-lg border border-blue-600 bg-transparent"
             onPress={() => setter((prev: number) => prev + 60)}
           >
             <Text className="text-sm font-medium text-blue-600">
@@ -140,14 +105,7 @@ function StartStudy({
           </Pressable>
 
           <Pressable
-            style={{
-              height: 48,
-              width: "100%",
-              alignItems: "center",
-              justifyContent: "center",
-              marginBottom: 8,
-            }}
-            className="rounded-lg border border-blue-600 bg-transparent"
+            className="mb-2 h-12 w-full items-center justify-center rounded-lg border border-blue-600 bg-transparent"
             onPress={() => setter((prev) => prev + 120)}
           >
             <Text className="text-sm font-medium text-blue-600">
@@ -163,7 +121,7 @@ function StartStudy({
 
 function StartBreak() {
   return (
-    <View style={{ flex: 1, width: "100%" }}>
+    <View className="flex-1 w-full">
       <Text> Start Break time </Text>
     </View>
   );
