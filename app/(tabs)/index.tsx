@@ -28,7 +28,7 @@ function StartStudy({
         if (curref.current !== 0) setter((prev) => prev - 1);
         else clearInterval(intervalID);
       }
-    }, 100);
+    }, 1000);
     return () => clearInterval(intervalID);
   }, [status, curstate]);
   useEffect(() => {
@@ -93,7 +93,6 @@ function StartStudy({
               </Text>
             )}
           </Pressable>
-
           <Pressable
             className="mb-2 h-12 w-full items-center justify-center rounded-lg border border-blue-600 bg-transparent"
             onPress={() => setter((prev: number) => prev + 60)}
@@ -103,7 +102,6 @@ function StartStudy({
               Increase Study Time to 60{" "}
             </Text>
           </Pressable>
-
           <Pressable
             className="mb-2 h-12 w-full items-center justify-center rounded-lg border border-blue-600 bg-transparent"
             onPress={() => setter((prev) => prev + 120)}
