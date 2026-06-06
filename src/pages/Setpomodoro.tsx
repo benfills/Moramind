@@ -33,7 +33,6 @@ export default function SetPomodoro({
         </h1>
       </div>
 
-      {/* Settings card */}
       <div className="w-full max-w-sm rounded-2xl border border-white/10 bg-white/5 px-6 py-7 shadow-[0_0_40px_rgba(170,59,255,0.15)] backdrop-blur">
         <p className="mb-5 text-xs font-bold uppercase tracking-widest text-gray-500">
           Configure your session

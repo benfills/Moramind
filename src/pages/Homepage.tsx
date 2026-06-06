@@ -1,9 +1,7 @@
-// src/pages/Homepage.tsx
 import { useMemo } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../context/useAuth";
 
-/* ─────────────────────────── types ── */
 type Span = "wide" | "full" | undefined;
 
 interface Feature {
@@ -18,7 +16,6 @@ interface Feature {
   span?: Span;
 }
 
-/* ─────────────────────────── data ── */
 const FEATURES: Feature[] = [
   {
     id: "pomodoro",
@@ -94,7 +91,6 @@ function getGreeting(email?: string) {
   return { salutation, name };
 }
 
-/* ─────────────────────────── page ── */
 export default function Homepage() {
   const { user, signOut } = useAuth();
   const navigate = useNavigate();
@@ -112,7 +108,6 @@ export default function Homepage() {
       />
 
       <div className="relative z-10 mx-auto max-w-5xl px-5 py-8 flex flex-col gap-10">
-        {/* ── Nav ── */}
         <header className="flex items-center justify-between">
           <span
             className="text-sm font-black text-white tracking-tight"
@@ -133,7 +128,6 @@ export default function Homepage() {
           </div>
         </header>
 
-        {/* ── Greeting ── */}
         <section className="flex flex-col gap-1.5">
           <p className="text-sm font-medium text-gray-500">{salutation},</p>
           <h1
@@ -151,7 +145,6 @@ export default function Homepage() {
           </p>
         </section>
 
-        {/* ── Quick stats ── */}
         <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
           {QUICK_STATS.map((s) => (
             <div
@@ -171,7 +164,6 @@ export default function Homepage() {
           ))}
         </div>
 
-        {/* ── Feature grid ── */}
         <div>
           <p className="mb-4 text-[11px] font-bold uppercase tracking-widest text-gray-600">
             Your workspace
@@ -188,7 +180,6 @@ export default function Homepage() {
           </div>
         </div>
 
-        {/* ── Footer ── */}
         <footer className="pb-4 text-center text-[11px] text-gray-700">
           Moramind · Focus. Rest. Repeat.
         </footer>
@@ -197,7 +188,6 @@ export default function Homepage() {
   );
 }
 
-/* ─────────────────────────── card ── */
 function FeatureCard({
   feature: f,
   delay,
@@ -238,7 +228,6 @@ function FeatureCard({
         animationDelay: `${delay}ms`,
       }}
     >
-      {/* Corner glow orb */}
       {f.available && (
         <div
           aria-hidden
@@ -247,7 +236,6 @@ function FeatureCard({
         />
       )}
 
-      {/* Content */}
       <div className="relative z-10 flex flex-col gap-2">
         <span
           className="text-2xl font-black"
@@ -264,7 +252,6 @@ function FeatureCard({
         <p className="text-sm leading-relaxed text-gray-400">{f.desc}</p>
       </div>
 
-      {/* Badge */}
       <div className="relative z-10 mt-4">
         <span
           className="inline-block rounded-full px-3 py-1 text-[11px] font-bold uppercase tracking-widest"
