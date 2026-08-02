@@ -13,7 +13,8 @@ export default function Homepage() {
   return (
     <div className="h-dvh w-dvw">
       <div className="bg-[#0B132B] relative h-1/8 w-full flex justify-between items-center text-5xl ">
-        <div className=" w-1/3 flex justify-evenly ">
+        <div className=" w-1/3 flex justify-evenly gap-10 pl-6 ">
+          {/* to be continued */}
           <Bookicon />
           <Productivityicon />
           <Journalicon />
@@ -26,7 +27,8 @@ export default function Homepage() {
             Moramind{" "}
           </h1>
         </div>
-        <div className="w-1/3   flex justify-evenly">
+        <div className="w-1/3 flex justify-evenly gap-10 pr-6">
+          {/* to be continued */}
           <Aichatboxicon />
           <Mathicon />
           <Settingsicon />
