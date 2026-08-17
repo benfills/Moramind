@@ -21,7 +21,7 @@
   @apply border-4 border-solid border-red-500;
 }
 .dbg2 {
-  @apply border-4 border-solid border-orange-500;
+  @apply border-4 border-solid border-black;
 }
 .dbg3 {
   @apply border-4 border-solid border-yellow-500;
@@ -55,7 +55,6 @@
 }
 
 .book {
-  position: ;
   width: 100px;
   height: 100px
 }

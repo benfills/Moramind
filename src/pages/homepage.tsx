@@ -1,39 +1,16 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
-import "../index.css";
-import Mathicon from "../assets/mathicon";
-import Bookicon from "../assets/bookicon";
-import Aichatboxicon from "../assets/aichatboxicon";
-import Settingsicon from "../assets/settingsicon";
-import Productivityicon from "../assets/productivityicon";
-import Journalicon from "../assets/journalicon";
-
-export default function Homepage() {
-  const [check, setCheck] = useState<string>("");
-  return (
-    <div className="h-dvh w-dvw">
-      <div className="bg-[#0B132B] relative h-1/8 w-full flex justify-between items-center text-5xl ">
-        <div className=" w-1/3 flex justify-evenly gap-10 pl-6 ">
-          {/* to be continued */}
-          <Bookicon />
-          <Productivityicon />
-          <Journalicon />
-        </div>
-        <div className="w-full h-full flex items-center justify-center">
-          <div className="absolute inset-[50%_0px_0px_50%] translate-[-50%]  h-1/2 w-96 rounded-full transition-[background-color_0.5s_ease,blur_10s_ease] hover:bg-[rgba(0,229,255,0.12)] hover:blur-[20px]" />
-          {/* to be continued */}
-          <h1 className="absolute inset-[50%_0px_0px_50%] transition-all duration-500 ease-in translate-[-50%] pointer-events-none font-extrabold hover:text-shadow-[1px_0px_2px_#00E5FF,-1px_0px_2px_#00E5FF,0px_1px_2px_#00E5FF,0px_-1px_2px_#00E5FF] text-[#FFFFFF] flex justify-center items-center">
-            {" "}
-            Moramind{" "}
-          </h1>
-        </div>
-        <div className="w-1/3 flex justify-evenly gap-10 pr-6">
-          {/* to be continued */}
-          <Aichatboxicon />
-          <Mathicon />
-          <Settingsicon />
-        </div>
+  export default function Homepage() {
+    return (
+    <div className="dbg1 relative h-dvh w-dvw flex items-start">
+      <hgroup className="dbg2 flex flex-col justify-center items-center">
+        <h1 className="dbg3 text-5xl md"> Brains Adapt </h1>
+        <p className="dbg3 text-sm text-neutral-500"> We just build systems that don't fight yours. </p>
+      </hgroup>
+      <div className="dbg2 absolute left-65 top-15 translate-y-25">
+        this is the mascot
+      </div>
+      <div className="dbg2 absolute top-45 left-90 h-1/2 w-1/2 flex flex-col justify-center items-center">
+        this is the video
       </div>
     </div>
-  );
-}
+    );
+  }
