@@ -1,5 +1,6 @@
 import Cloud from "../assets/cloud";
 import videoPlaceholder from "../assets/VideoPlaceholder.mp4";
+import subtitle from "../assets/subtitles.vtt";
 
 export default function Homepage() {
   return (
@@ -29,7 +30,13 @@ export default function Homepage() {
           <video className="h-full w-full object-cover" controls>
             <source src={videoPlaceholder} type="video/mp4" />
             Your browser does not support the video tag.
-            <track kind="captions"></track>
+            <track
+              kind="captions"
+              src={subtitle}
+              srcLang="en"
+              label="English"
+              default
+            />{" "}
           </video>
         </div>
         <div className="absolute -top-15 left-0 z-10 aspect-105/76 w-[28%] max-w-40.5 min-w-22.5 -translate-x-1/4 sm:-translate-x-1/3">
