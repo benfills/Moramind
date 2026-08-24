@@ -3,7 +3,7 @@ import type {
   AuthResponse,
   AuthTokenResponsePassword,
   User,
-  Session
+  Session,
 } from "@supabase/supabase-js";
 import { createContext } from "react";
 
@@ -13,7 +13,7 @@ export interface AuthContext {
   session: Session | null;
   signIn: (
     email: string,
-    password: string
+    password: string,
   ) => Promise<AuthTokenResponsePassword>;
   signOut: () => Promise<{ error: AuthError | null }>;
   signUp: (email: string, password: string) => Promise<AuthResponse>;

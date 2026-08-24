@@ -15,19 +15,19 @@ export default function Signup() {
   return (
     <div
       style={{ backgroundImage: `url(${HomepageWallpaper})` }}
-      className="flex items-center justify-center w-dvw h-dvh max-w-full max-h-full bg-cover bg-no-repeat bg-center"
+      className="flex h-dvh max-h-full w-dvw max-w-full items-center justify-center bg-cover bg-center bg-no-repeat"
     >
-      <div className="h-96 flex flex-col justify-center items-center w-full">
+      <div className="flex h-96 w-full flex-col items-center justify-center">
         <button
-          className="inline-block bg-green-600 text-white text-2xl px-20 py-2 rounded-2xl w-2xl translate-x-2 -translate-y-2 shadow-[-8px_8px_12px_1px_rgba(18,18,18,0.71)] hover:brightness-125 active:shadow-none active:translate-x-0 active:translate-y-0"
+          className="inline-block w-2xl translate-x-2 -translate-y-2 rounded-2xl bg-green-600 px-20 py-2 text-2xl text-white shadow-[-8px_8px_12px_1px_rgba(18,18,18,0.71)] hover:brightness-125 active:translate-x-0 active:translate-y-0 active:shadow-none"
           onClick={() => signUp(email, password)}
         >
           {" "}
           Sign Up{" "}
         </button>
-        <div className="flex flex-0 justify-center  max-w-full max-h-full">
+        <div className="flex max-h-full max-w-full flex-0 justify-center">
           <input
-            className="bg-amber-800 max-w-md mt-2 rounded-lg p-2 border-4 border-blue-900 w-2xs"
+            className="mt-2 w-2xs max-w-md rounded-lg border-4 border-blue-900 bg-amber-800 p-2"
             id="Email"
             title="email"
             placeholder="someone@email.com"
@@ -35,7 +35,7 @@ export default function Signup() {
             onChange={(e) => setEmail(e.target.value)}
           />
           <input
-            className="bg-amber-800 max-w-md mt-2 rounded-lg p-2 border-4 border-blue-900 w-2xs"
+            className="mt-2 w-2xs max-w-md rounded-lg border-4 border-blue-900 bg-amber-800 p-2"
             id="Password"
             title="password"
             type="password"
@@ -44,17 +44,17 @@ export default function Signup() {
             onChange={(e) => setPassword(e.target.value)}
           />
         </div>
-        <div className="flex justify-evenly w-2xl">
+        <div className="flex w-2xl justify-evenly">
           <Link
             to={"/login"}
-            className="underline text-blue-600 hover:text-blue-800 hover:decoration-3"
+            className="text-blue-600 underline hover:text-blue-800 hover:decoration-3"
           >
             {" "}
             Already have an Account?
           </Link>
           <Link
             to={"/forgotpassword"}
-            className="underline text-blue-600 hover:text-blue-800 hover:decoration-3"
+            className="text-blue-600 underline hover:text-blue-800 hover:decoration-3"
           >
             {" "}
             Forgot Password?{" "}

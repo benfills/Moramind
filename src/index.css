@@ -1,8 +1,30 @@
 @import "tailwindcss";
 
+@theme {
+  --bg-primary: #f7f5f0;
+  --bg-secondary: #ebe9e4;
+  --bg-tertiary: #dcdad5;
+
+  --text-primary: #2d2a26;
+  --text-secondary: #5c5955;
+  --text-muted: #85827d;
+
+  --primary-main: #4a6fa5;
+  --primary-hover: #3b5a84;
+  --primary-light: #e3e9f2;
+
+  --accent-main: #6b8e23;
+  --accent-soft: #d8e5c4;
+
+  --status-error: #bc5d58;
+  --status-warn: #d9a646;
+  --status-ok: #5f8d78;
+}
+
 :root {
   --surface-1: #006ef5;
   --surface-2: #ffffff;
+  --surface-3: #000000;
   --border-strong: #94a8c2;
   --text-primary: #1e293b;
 }
@@ -56,7 +78,7 @@
 
 .book {
   width: 100px;
-  height: 100px
+  height: 100px;
 }
 
 .mirror {

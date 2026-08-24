@@ -33,7 +33,6 @@ export default function Productivityicon() {
         height="110"
         xmlns="http://www.w3.org/2000/svg"
         className="svgparent"
-
       >
         <g strokeWidth="3.75  " strokeLinecap="round" opacity="0.85">
           <path id="plus1" stroke="none" d="M130 35v25M117 48h25" />
