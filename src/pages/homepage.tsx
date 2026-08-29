@@ -40,9 +40,18 @@ export default function Homepage() {
           </div>
         </div>
       </div>
-      <div className="flex h-90 w-full">
-        <div className="flex-1"></div>
-        <div className="flex flex-1 flex-col items-center justify-center">
+      <div className="grid w-full grid-cols-1 sm:grid-cols-2">
+        <div className="flex flex-col items-center justify-center gap-11">
+          <p className="text-[16px] text-(--text-secondary)">Session 1/4</p>
+          <p className="font-sans text-7xl font-bold text-(--text-primary)">
+            24:59
+          </p>
+          <button className="h-12 w-35 rounded-3xl bg-(--primary-main)">
+            START
+          </button>
+        </div>
+        <div className="flex flex-col items-center justify-center">
+          <p className="text-[16px] text-(--text-secondary)">This month</p>
           <div className="m-10 grid w-fit grid-cols-7 content-start gap-0.5">
             <Heatblocks />
           </div>
