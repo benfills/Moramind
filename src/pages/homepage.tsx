@@ -4,7 +4,7 @@ import subtitle from "../assets/subtitles.vtt";
 
 export default function Homepage() {
   return (
-    <div className="relative flex min-h-dvh w-full flex-col items-center gap-10 bg-black px-4 py-12">
+    <div className="relative flex min-h-dvh w-full flex-col items-center gap-10 bg-(--bg-primary) px-4 py-12">
       <div className="mb-10 flex w-full flex-col items-center justify-center gap-4 text-center">
         <h1 className="max-w-[100vw] sm:max-w-130">
           <span className="text-[clamp(2rem,6vw,3.5rem)] leading-tight font-bold text-(--text-primary)">
@@ -40,41 +40,33 @@ export default function Homepage() {
           </div>
         </div>
       </div>
-      <div className="dbg1 flex h-90 w-full">
-        <div className="dbg2 flex-1"></div>
-        <div className="dbg3 flex flex-1 justify-center">
-          <div className="dbg4 m-10 flex w-1/2 flex-wrap pr-6 leading-none">
+      <div className="flex h-90 w-full">
+        <div className="flex-1"></div>
+        <div className="flex flex-1 flex-col items-center justify-center">
+          <div className="m-10 grid w-fit grid-cols-7 content-start gap-0.5">
             <Heatblocks />
           </div>
+          <h3 className="text-[22px] font-bold text-[#2d2a26]">
+            Progress Tracking
+          </h3>
+          <p className="text-base text-[#5c5955]">
+            See your pattern, not your failures.
+          </p>
         </div>
       </div>
     </div>
   );
 }
-
 function Heatblocks() {
   const heatmapColors = [
-    "#ccd7e6",
-    "#96abcb",
-    "#efefef",
-    "#4a6fa5",
     "#96abcb",
     "#ccd7e6",
     "#efefef",
-    "#96abcb",
-    "#4a6fa5",
-    "#4a6fa5",
-    "#ccd7e6",
-    "#efefef",
-    "#96abcb",
-    "#4a6fa5",
-    "#efefef",
     "#ccd7e6",
     "#96abcb",
     "#4a6fa5",
-    "#4a6fa5",
-    "#96abcb",
     "#ccd7e6",
+    "#96abcb",
     "#4a6fa5",
     "#96abcb",
     "#ccd7e6",
@@ -82,21 +74,27 @@ function Heatblocks() {
     "#ccd7e6",
     "#96abcb",
     "#4a6fa5",
-    "#96abcb",
     "#ccd7e6",
+    "#96abcb",
+    "#4a6fa5",
+    "#4a6fa5",
+    "#96abcb",
+    "#96abcb",
+    "#4a6fa5",
+    "#ccd7e6",
+    "#96abcb",
     "#4a6fa5",
     "#96abcb",
     "#ccd7e6",
     "#efefef",
-    "#ccd7e6",
-    "#96abcb",
-    "#4a6fa5",
   ];
+
   const progress = heatmapColors.map((colors, index) => (
     <div
-      className="h-5 w-5 rounded-lg border-black"
+      key={index}
+      className="h-7 w-7 rounded-md"
       style={{
-        backgroundColor: `${colors}`,
+        backgroundColor: colors,
       }}
     />
   ));

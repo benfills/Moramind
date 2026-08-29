@@ -1,24 +1,40 @@
 @import "tailwindcss";
 
 @theme {
-  --bg-primary: #f7f5f0;
-  --bg-secondary: #ebe9e4;
-  --bg-tertiary: #dcdad5;
+  /* Backgrounds: Lower saturation, avoided pure white to reduce glare */
+  --bg-primary: #f2f0ea;
+  --bg-secondary: #e5e3dd;
+  --bg-tertiary: #d6d4ce;
+  --bg-surface: #fcfbfa;    /* Off-white, replaces harsh #ffffff */
 
-  --text-primary: #2d2a26;
-  --text-secondary: #5c5955;
-  --text-muted: #85827d;
+  /* Text: Softened black to reduce contrast-induced eye strain */
+  --text-primary: #242321;
+  --text-secondary: #54524f;
+  --text-muted: #7d7a76;
 
-  --primary-main: #4a6fa5;
-  --primary-hover: #3b5a84;
-  --primary-light: #e3e9f2;
+  --text-on-primary: #ffffff;
+  --text-on-accent: #ffffff;
+  --text-on-status: #ffffff;
 
-  --accent-main: #6b8e23;
-  --accent-soft: #d8e5c4;
+  /* Borders: Distinct enough to create visual structure and boundaries */
+  --border-subtle: #d6d4ce;
+  --border-strong: #a8a6a1;
 
-  --status-error: #bc5d58;
-  --status-warn: #d9a646;
-  --status-ok: #5f8d78;
+  /* Brand / Primary: Deeper Value for grounding and clear focus */
+  --primary-main: #3a6194;
+  --primary-hover: #2d4c75;
+  --primary-light: #dae3ef;
+  --primary-focus: #3a619466;
+
+  /* Accent: Warmer Hue to distinctly separate "actions" from "structure" */
+  --accent-main: #658231;
+  --accent-hover: #4e6625;
+  --accent-soft: #d3dfbe;
+
+  /* Status: Muted saturations to inform without triggering alarm/anxiety */
+  --status-error: #b3524d;
+  --status-warn: #cc9933;
+  --status-ok: #52806a;
 }
 
 :root {
