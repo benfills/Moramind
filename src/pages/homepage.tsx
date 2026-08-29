@@ -46,10 +46,10 @@ export default function Homepage() {
           <div className="m-10 grid w-fit grid-cols-7 content-start gap-0.5">
             <Heatblocks />
           </div>
-          <h3 className="text-[22px] font-bold text-[#2d2a26]">
+          <h3 className="text-[22px] font-bold text-(--text-primary)">
             Progress Tracking
           </h3>
-          <p className="text-base text-[#5c5955]">
+          <p className="text-base text-(--text-secondary)">
             See your pattern, not your failures.
           </p>
         </div>
