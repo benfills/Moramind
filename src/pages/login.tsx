@@ -63,7 +63,7 @@ export default function Login() {
       </div>
       <div className="flex h-96 w-full flex-col items-center justify-center border-2 border-solid">
         <button
-          className="inline-block w-2xl translate-x-2 -translate-y-2 rounded-2xl bg-green-600 px-20 py-2 text-2xl text-white shadow-[-8px_8px_12px_1px_rgba(18,18,18,0.71)] hover:brightness-125 active:translate-x-0 active:translate-y-0 active:shadow-none"
+          className="w-2xl translate-x-2 -translate-y-2 rounded-2xl bg-green-600 px-20 py-2 text-2xl text-white shadow-[-8px_8px_12px_1px_rgba(18,18,18,0.71)] hover:brightness-125 active:translate-x-0 active:translate-y-0 active:shadow-none"
           onClick={() => {
             signIn(email, password)
               .then((success) => {
@@ -73,7 +73,7 @@ export default function Login() {
                   alert("internet error");
                 } else if (success.error) {
                   alert(
-                    `unable to sign in:scheck if your password is correct and email exist`,
+                    `unable to sign in: check if your password is correct and email exist`,
                   );
                 } else {
                 }
