@@ -1,20 +1,34 @@
 import Cloud from "../assets/cloud";
 import videoPlaceholder from "../assets/VideoPlaceholder.mp4";
 import subtitle from "../assets/subtitles.vtt";
+import { useEffect, useState } from "react";
 
 export default function Homepage() {
+  const [tick, setTick] = useState(1440);
+  const [status, setStatus] = useState(false);
+  const duration = [Math.floor(tick / 60), tick % 60]
+    .map((time) => time.toString().padStart(2, "0"))
+    .join(":");
+  useEffect(() => {
+    if (status) {
+      const tickid = setInterval(() => {
+        setTick((prev) => prev - 1);
+      }, 1000);
+      return () => clearInterval(tickid);
+    }
+  }, [status]);
   return (
     <div className="relative flex min-h-dvh w-full flex-col items-center gap-10 bg-(--bg-primary) px-4 py-12">
       <div className="mb-10 flex w-full flex-col items-center justify-center gap-4 text-center">
         <h1 className="max-w-[100vw] sm:max-w-130">
           <span className="text-[clamp(2rem,6vw,3.5rem)] leading-tight font-bold text-(--text-primary)">
-            Brains adapt.{" "}
+            Brains adapt.
           </span>
           <span className="text-[clamp(1rem,2.5vw,1.5rem)] leading-tight font-normal text-(--text-secondary)">
             We just build systems that don't fight yours.
           </span>
         </h1>
-        <button className="mt-1 h-9 -translate-x-0.5 -translate-y-0.5 rounded-2xl border-3 border-solid border-white bg-(--primary-main) px-8 text-white shadow-[3px_3px_12px_1px_rgba(25,41,66,0.16)] hover:bg-(--primary-hover) active:translate-x-0 active:translate-y-0 active:shadow-none">
+        <button className="mt-1 h-9 -translate-x-0.5 -translate-y-0.5 rounded-2xl border-3 border-solid border-(--bg-surface) bg-(--primary-main) px-8 text-(--text-on-primary) shadow-[3px_3px_12px_1px_rgba(25,41,66,0.16)] hover:bg-(--primary-hover) active:translate-x-0 active:translate-y-0 active:shadow-none">
           Try Now
         </button>
       </div>
@@ -34,26 +48,46 @@ export default function Homepage() {
         </div>
         <div className="absolute -top-15 left-0 z-10 aspect-105/76 w-[28%] max-w-40.5 min-w-22.5 -translate-x-1/4 sm:-translate-x-1/3">
           <Cloud />
-          <div className="absolute top-4 left-1/2 w-32 -translate-y-full rounded-4xl border-2 border-solid border-black bg-white p-2 text-center text-xs wrap-break-word sm:w-40 sm:text-[15px]">
+          <div className="absolute top-4 left-1/2 w-32 -translate-y-full rounded-4xl border-2 border-solid border-(--border-strong) bg-(--bg-surface) p-2 text-center text-xs wrap-break-word text-(--text-primary) sm:w-40 sm:text-[15px]">
             Hello, I will explain a summary of the specific feature shown in
             this video.
           </div>
         </div>
       </div>
       <div className="grid w-full grid-cols-1 sm:grid-cols-2">
-        <div className="flex flex-col items-center justify-center gap-11">
-          <p className="text-[16px] text-(--text-secondary)">Session 1/4</p>
-          <p className="font-sans text-7xl font-bold text-(--text-primary)">
-            24:59
+        <div className="flex flex-col items-center justify-center">
+          <div className="mb-10 flex w-max flex-col items-center justify-center gap-7">
+            <p className="text-[16px] text-(--text-secondary)">Session 1/4</p>
+            <p className="text-7xl font-bold text-(--text-primary)">
+              {duration}
+            </p>
+            <button
+              className="h-10 w-28 -translate-x-0.5 -translate-y-0.5 rounded-3xl bg-(--primary-main) text-(--text-on-primary) shadow-[3px_3px_12px_1px_rgba(25,41,66,0.16)] hover:bg-(--primary-hover) active:translate-x-0 active:translate-y-0 active:shadow-none"
+              onClick={() => {
+                const firstime = Date.now();
+                setStatus(!status);
+                console.log(
+                  `current status state: ${status}\nat event pace: `,
+                  Date.now() - firstime,
+                );
+              }}
+            >
+              STOP
+            </button>
+          </div>
+          <h3 className="text-[22px] font-bold text-(--text-primary)">
+            Pomodoro
+          </h3>
+          <p className="text-base text-(--text-secondary)">
+            Time that works with you, not against you.
           </p>
-          <button className="h-12 w-35 rounded-3xl bg-(--primary-main)">
-            START
-          </button>
         </div>
         <div className="flex flex-col items-center justify-center">
-          <p className="text-[16px] text-(--text-secondary)">This month</p>
-          <div className="m-10 grid w-fit grid-cols-7 content-start gap-0.5">
-            <Heatblocks />
+          <div className="flex flex-col items-center justify-center gap-5">
+            <p className="text-[16px] text-(--text-secondary)">This month</p>
+            <div className="m-10 grid w-max grid-cols-7 content-start gap-0.5">
+              <Heatblocks />
+            </div>
           </div>
           <h3 className="text-[22px] font-bold text-(--text-primary)">
             Progress Tracking
@@ -66,46 +100,48 @@ export default function Homepage() {
     </div>
   );
 }
+
 function Heatblocks() {
   const heatmapColors = [
-    "#96abcb",
-    "#ccd7e6",
-    "#efefef",
-    "#ccd7e6",
-    "#96abcb",
-    "#4a6fa5",
-    "#ccd7e6",
-    "#96abcb",
-    "#4a6fa5",
-    "#96abcb",
-    "#ccd7e6",
-    "#efefef",
-    "#ccd7e6",
-    "#96abcb",
-    "#4a6fa5",
-    "#ccd7e6",
-    "#96abcb",
-    "#4a6fa5",
-    "#4a6fa5",
-    "#96abcb",
-    "#96abcb",
-    "#4a6fa5",
-    "#ccd7e6",
-    "#96abcb",
-    "#4a6fa5",
-    "#96abcb",
-    "#ccd7e6",
-    "#efefef",
+    "var(--primary-main)",
+    "var(--primary-light)",
+    "var(--bg-tertiary)",
+    "var(--primary-light)",
+    "var(--primary-main)",
+    "var(--primary-hover)",
+    "var(--primary-light)",
+    "var(--primary-main)",
+    "var(--primary-hover)",
+    "var(--primary-main)",
+    "var(--primary-light)",
+    "var(--bg-tertiary)",
+    "var(--primary-light)",
+    "var(--primary-main)",
+    "var(--primary-hover)",
+    "var(--primary-light)",
+    "var(--primary-main)",
+    "var(--primary-hover)",
+    "var(--primary-hover)",
+    "var(--primary-main)",
+    "var(--primary-main)",
+    "var(--primary-hover)",
+    "var(--primary-light)",
+    "var(--primary-main)",
+    "var(--primary-hover)",
+    "var(--primary-main)",
+    "var(--primary-light)",
+    "var(--bg-tertiary)",
   ];
 
-  const progress = heatmapColors.map((colors, index) => (
+  const progress = heatmapColors.map((color, index) => (
     <div
       key={index}
       className="h-7 w-7 rounded-md"
       style={{
-        backgroundColor: colors,
+        backgroundColor: color,
       }}
     />
   ));
+
   return progress;
 }
