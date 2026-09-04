@@ -61,25 +61,18 @@ export default function Homepage() {
             <p className="text-7xl font-bold text-(--text-primary)">
               {duration}
             </p>
-            {status ? (
-              <button
-                className="h-10 w-28 -translate-x-0.5 -translate-y-0.5 rounded-3xl bg-[#943a3a] text-(--text-on-primary) shadow-[3px_3px_12px_1px_rgba(25,41,66,0.16)] hover:bg-[#752d2d] active:translate-x-0 active:translate-y-0 active:shadow-none"
-                onClick={() => {
-                  setStatus(!status);
-                }}
-              >
-                STOP
-              </button>
-            ) : (
-              <button
-                className="h-10 w-28 -translate-x-0.5 -translate-y-0.5 rounded-3xl bg-(--primary-main) text-(--text-on-primary) shadow-[3px_3px_12px_1px_rgba(25,41,66,0.16)] hover:bg-(--primary-hover) active:translate-x-0 active:translate-y-0 active:shadow-none"
-                onClick={() => {
-                  setStatus(!status);
-                }}
-              >
-                START
-              </button>
-            )}
+            <button
+              className={`h-10 w-28 -translate-x-0.5 -translate-y-0.5 rounded-3xl ${
+                status
+                  ? "bg-[#943a3a] hover:bg-[#752d2d]"
+                  : "bg-(--primary-main) hover:bg-(--primary-hover)"
+              } text-(--text-on-primary) shadow-[3px_3px_12px_1px_rgba(25,41,66,0.16)] active:translate-x-0 active:translate-y-0 active:shadow-none`}
+              onClick={() => {
+                setStatus(!status);
+              }}
+            >
+              {status ? "STOP" : "START"}
+            </button>
           </div>
           <h3 className="text-[22px] font-bold text-(--text-primary)">
             Pomodoro
