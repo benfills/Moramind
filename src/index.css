@@ -35,6 +35,7 @@
 
   /* Status: Muted saturations to inform without triggering alarm/anxiety */
   --status-error: #b3524d;
+  --status-error-hover: #964440;
   --status-warn: #cc9933;
   --status-ok: #52806a;
 }
