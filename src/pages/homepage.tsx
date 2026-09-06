@@ -1,7 +1,7 @@
 import Cloud from "../assets/cloud";
 import videoPlaceholder from "../assets/VideoPlaceholder.mp4";
 import subtitle from "../assets/subtitles.vtt";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 
 export default function Homepage() {
   const [tick, setTick] = useState(1440);
@@ -9,10 +9,21 @@ export default function Homepage() {
   const duration = [Math.floor(tick / 60), tick % 60]
     .map((time) => time.toString().padStart(2, "0"))
     .join(":");
+  const freeze = useRef<number | null>(null);
+  const snapshot = () => {
+    freeze.current = tick;
+  };
   useEffect(() => {
     if (status) {
       const tickid = setInterval(() => {
-        setTick((prev) => prev - 1);
+        setTick((prev) => {
+          if (prev <= 0) {
+            setStatus(false);
+            return 0;
+          } else {
+            return prev - 1;
+          }
+        });
       }, 1000);
       return () => clearInterval(tickid);
     }
@@ -58,21 +69,44 @@ export default function Homepage() {
         <div className="flex flex-col items-center justify-center">
           <div className="mb-10 flex w-max flex-col items-center justify-center gap-7">
             <p className="text-[16px] text-(--text-secondary)">Session 1/4</p>
+            {status === false ? (
+              <button
+                className="h-12 w-12 -translate-x-0.5 -translate-y-0.5 rounded-[50%] bg-(--primary-light) text-(--text-primary) shadow-[3px_3px_12px_1px_rgba(25,41,66,0.16)] hover:bg-(--primary-hover) hover:text-(--text-on-primary) active:translate-x-0 active:translate-y-0 active:shadow-none"
+                onClick={() => {
+                  setTick((prev) => prev + 120);
+                }}
+              >
+                +120s
+              </button>
+            ) : (
+              ""
+            )}
             <p className="text-7xl font-bold text-(--text-primary)">
               {duration}
             </p>
-            <button
-              className={`h-10 w-28 -translate-x-0.5 -translate-y-0.5 rounded-3xl ${
-                status
-                  ? "bg-[#943a3a] hover:bg-[#752d2d]"
-                  : "bg-(--primary-main) hover:bg-(--primary-hover)"
-              } text-(--text-on-primary) shadow-[3px_3px_12px_1px_rgba(25,41,66,0.16)] active:translate-x-0 active:translate-y-0 active:shadow-none`}
-              onClick={() => {
-                setStatus(!status);
-              }}
-            >
-              {status ? "STOP" : "START"}
-            </button>
+            <div className=" flex items-center justify-center">
+              <button
+                className={`h-10 w-28 -translate-x-0.5 -translate-y-0.5 rounded-3xl bg-(--text-secondary) text-(--text-on-primary) shadow-[3px_3px_12px_1px_rgba(25,41,66,0.16)] active:translate-x-0 active:translate-y-0 active:shadow-none`}
+              >
+                RESET
+              </button>
+              <button
+                className={`h-10 w-28 -translate-x-0.5 -translate-y-0.5 rounded-3xl ${
+                  status && tick > 0
+                    ? "bg-(--status-error) hover:bg-(--status-error-hover)"
+                    : "bg-(--primary-main) hover:bg-(--primary-hover)"
+                } text-(--text-on-primary) shadow-[3px_3px_12px_1px_rgba(25,41,66,0.16)] active:translate-x-0 active:translate-y-0 active:shadow-none`}
+                onClick={() => {
+                  if (tick > 0) {
+                    setStatus(!status);
+                  } else {
+                    alert("Put Your Timer First!");
+                  }
+                }}
+              >
+                {status && tick > 0 ? "STOP" : "START"}
+              </button>
+            </div>
           </div>
           <h3 className="text-[22px] font-bold text-(--text-primary)">
             Pomodoro
