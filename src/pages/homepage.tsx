@@ -1,18 +1,15 @@
 import Cloud from "../assets/cloud";
 import videoPlaceholder from "../assets/VideoPlaceholder.mp4";
 import subtitle from "../assets/subtitles.vtt";
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState } from "react";
 
 export default function Homepage() {
-  const [tick, setTick] = useState(1440);
+  const [initialDuration, setInitialDuration] = useState(1440);
+  const [tick, setTick] = useState(initialDuration);
   const [status, setStatus] = useState(false);
   const duration = [Math.floor(tick / 60), tick % 60]
     .map((time) => time.toString().padStart(2, "0"))
     .join(":");
-  const freeze = useRef<number | null>(null);
-  const snapshot = () => {
-    freeze.current = tick;
-  };
   useEffect(() => {
     if (status) {
       const tickid = setInterval(() => {
@@ -28,6 +25,7 @@ export default function Homepage() {
       return () => clearInterval(tickid);
     }
   }, [status]);
+  // create a custom component to render error fallback
   return (
     <div className="relative flex min-h-dvh w-full flex-col items-center gap-10 bg-(--bg-primary) px-4 py-12">
       <div className="mb-10 flex w-full flex-col items-center justify-center gap-4 text-center">
@@ -69,27 +67,51 @@ export default function Homepage() {
         <div className="flex flex-col items-center justify-center">
           <div className="mb-10 flex w-max flex-col items-center justify-center gap-7">
             <p className="text-[16px] text-(--text-secondary)">Session 1/4</p>
-            {status === false ? (
-              <button
-                className="h-12 w-12 -translate-x-0.5 -translate-y-0.5 rounded-[50%] bg-(--primary-light) text-(--text-primary) shadow-[3px_3px_12px_1px_rgba(25,41,66,0.16)] hover:bg-(--primary-hover) hover:text-(--text-on-primary) active:translate-x-0 active:translate-y-0 active:shadow-none"
-                onClick={() => {
-                  setTick((prev) => prev + 120);
-                }}
-              >
-                +120s
-              </button>
+            {status === false && tick === initialDuration ? (
+              <div className="flex gap-10">
+                <button
+                  className="h-12 w-12 -translate-x-0.5 -translate-y-0.5 rounded-[50%] bg-(--primary-light) text-(--text-primary) shadow-[3px_3px_12px_1px_rgba(25,41,66,0.16)] hover:bg-(--primary-hover) hover:text-(--text-on-primary) active:translate-x-0 active:translate-y-0 active:shadow-none"
+                  onClick={() => {
+                    setInitialDuration((prev) => prev + 120);
+                    setTick((prev) => prev + 120);
+                  }}
+                >
+                  +120s
+                </button>
+                <button
+                  className="h-12 w-12 -translate-x-0.5 -translate-y-0.5 rounded-[50%] bg-(--primary-light) text-(--text-primary) shadow-[3px_3px_12px_1px_rgba(25,41,66,0.16)] hover:bg-(--primary-hover) hover:text-(--text-on-primary) active:translate-x-0 active:translate-y-0 active:shadow-none"
+                  onClick={() => {
+                    if (initialDuration > 0) {
+                      setInitialDuration((prev) => prev - 120);
+                      setTick((prev) => prev - 120);
+                    } else {
+                      alert("Cant Go Down Further");
+                    }
+                  }}
+                >
+                  -120s
+                </button>
+              </div>
             ) : (
               ""
             )}
             <p className="text-7xl font-bold text-(--text-primary)">
               {duration}
             </p>
-            <div className=" flex items-center justify-center">
-              <button
-                className={`h-10 w-28 -translate-x-0.5 -translate-y-0.5 rounded-3xl bg-(--text-secondary) text-(--text-on-primary) shadow-[3px_3px_12px_1px_rgba(25,41,66,0.16)] active:translate-x-0 active:translate-y-0 active:shadow-none`}
-              >
-                RESET
-              </button>
+            <div className="flex items-center justify-center gap-4">
+              {tick !== initialDuration ? (
+                <button
+                  className={`h-10 w-28 -translate-x-0.5 -translate-y-0.5 rounded-3xl bg-(--text-muted) text-(--text-on-primary) shadow-[3px_3px_12px_1px_rgba(25,41,66,0.16)] hover:bg-(--text-secondary) active:translate-x-0 active:translate-y-0 active:shadow-none`}
+                  onClick={() => {
+                    setTick(initialDuration);
+                    setStatus(false);
+                  }}
+                >
+                  RESET
+                </button>
+              ) : (
+                ""
+              )}
               <button
                 className={`h-10 w-28 -translate-x-0.5 -translate-y-0.5 rounded-3xl ${
                   status && tick > 0
@@ -104,7 +126,7 @@ export default function Homepage() {
                   }
                 }}
               >
-                {status && tick > 0 ? "STOP" : "START"}
+                {status && tick > 0 ? "STOP" :  "START"}
               </button>
             </div>
           </div>
