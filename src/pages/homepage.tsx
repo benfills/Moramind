@@ -4,13 +4,19 @@ import subtitle from "../assets/subtitles.vtt";
 import { useEffect, useState } from "react";
 
 export default function Homepage() {
-  const [initialDuration, setInitialDuration] = useState(1440);
+  const [initialDuration, setInitialDuration] = useState(0);
   const [tick, setTick] = useState(initialDuration);
   const [status, setStatus] = useState(false);
+  const [hasError, setHasError] = useState({
+    increment: false,
+    decrement: false,
+    playback: false,
+  });
   const duration = [Math.floor(tick / 60), tick % 60]
     .map((time) => time.toString().padStart(2, "0"))
     .join(":");
   useEffect(() => {
+    console.log(hasError.decrement);
     if (status) {
       const tickid = setInterval(() => {
         setTick((prev) => {
@@ -21,11 +27,10 @@ export default function Homepage() {
             return prev - 1;
           }
         });
-      }, 1000);
+      }, 100);
       return () => clearInterval(tickid);
     }
   }, [status]);
-  // create a custom component to render error fallback
   return (
     <div className="relative flex min-h-dvh w-full flex-col items-center gap-10 bg-(--bg-primary) px-4 py-12">
       <div className="mb-10 flex w-full flex-col items-center justify-center gap-4 text-center">
@@ -72,11 +77,21 @@ export default function Homepage() {
                 <button
                   className="h-12 w-12 -translate-x-0.5 -translate-y-0.5 rounded-[50%] bg-(--primary-light) text-(--text-primary) shadow-[3px_3px_12px_1px_rgba(25,41,66,0.16)] hover:bg-(--primary-hover) hover:text-(--text-on-primary) active:translate-x-0 active:translate-y-0 active:shadow-none"
                   onClick={() => {
-                    setInitialDuration((prev) => prev + 120);
-                    setTick((prev) => prev + 120);
+                    if (initialDuration < 3600) {
+                      setInitialDuration((prev) => prev + 120);
+                      setTick((prev) => prev + 120);
+                    } else {
+                      setHasError((prev) => ({ ...prev, increment: true }));
+                      setTimeout(() => {
+                        setHasError((prev) => ({ ...prev, increment: false }));
+                      }, 1000);
+                    }
                   }}
                 >
                   +120s
+                  {!hasError.increment
+                    ? null
+                    : "Error: cant increment further"}
                 </button>
                 <button
                   className="h-12 w-12 -translate-x-0.5 -translate-y-0.5 rounded-[50%] bg-(--primary-light) text-(--text-primary) shadow-[3px_3px_12px_1px_rgba(25,41,66,0.16)] hover:bg-(--primary-hover) hover:text-(--text-on-primary) active:translate-x-0 active:translate-y-0 active:shadow-none"
@@ -85,16 +100,20 @@ export default function Homepage() {
                       setInitialDuration((prev) => prev - 120);
                       setTick((prev) => prev - 120);
                     } else {
-                      alert("Cant Go Down Further");
+                      setHasError((prev) => ({ ...prev, decrement: true }));
+                      setTimeout(() => {
+                        setHasError((prev) => ({ ...prev, decrement: false }));
+                      }, 1000);
                     }
                   }}
                 >
                   -120s
+                  {!hasError.decrement
+                    ? null
+                    : "Error: cant decrement further"}
                 </button>
               </div>
-            ) : (
-              ""
-            )}
+            ) : null}
             <p className="text-7xl font-bold text-(--text-primary)">
               {duration}
             </p>
@@ -109,9 +128,7 @@ export default function Homepage() {
                 >
                   RESET
                 </button>
-              ) : (
-                ""
-              )}
+              ) : null}
               <button
                 className={`h-10 w-28 -translate-x-0.5 -translate-y-0.5 rounded-3xl ${
                   status && tick > 0
@@ -122,12 +139,22 @@ export default function Homepage() {
                   if (tick > 0) {
                     setStatus(!status);
                   } else {
-                    alert("Put Your Timer First!");
+                    setHasError((prev) => ({ ...prev, playback: true }));
+                    setTimeout(() => {
+                      setHasError((prev) => ({ ...prev, playback: false }));
+                    }, 1000);
                   }
                 }}
               >
-                {status && tick > 0 ? "STOP" :  "START"}
+                {status && tick > 0
+                  ? "STOP"
+                  : tick < initialDuration
+                    ? "RESUME"
+                    : "START"}
               </button>
+              {!hasError.playback
+                ? null
+                : "Error: Unable to start the timer, please set your timer first"}
             </div>
           </div>
           <h3 className="text-[22px] font-bold text-(--text-primary)">
