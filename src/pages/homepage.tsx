@@ -16,7 +16,6 @@ export default function Homepage() {
     .map((time) => time.toString().padStart(2, "0"))
     .join(":");
   useEffect(() => {
-    console.log(hasError.decrement);
     if (status) {
       const tickid = setInterval(() => {
         setTick((prev) => {
