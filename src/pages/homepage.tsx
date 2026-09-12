@@ -70,8 +70,14 @@ export default function Homepage() {
       </div>
       <div className="grid w-full grid-cols-1 sm:grid-cols-2">
         <div className="flex flex-col items-center justify-center">
-          <div className="mb-10 flex w-max flex-col items-center justify-center gap-7">
+          <div className="relative mb-10 flex w-max flex-col items-center justify-center gap-7">
             <p className="text-[16px] text-(--text-secondary)">Session 1/4</p>
+            <p className="absolute top-4 -left-15">
+              {!hasError.increment ? null : "maximum reached"}
+            </p>
+            <p className="absolute top-4 -right-20">
+              {!hasError.decrement ? null : "you wouldn't want to"}
+            </p>
             {status === false && tick === initialDuration ? (
               <div className="flex gap-10">
                 <button
@@ -84,14 +90,11 @@ export default function Homepage() {
                       setHasError((prev) => ({ ...prev, increment: true }));
                       setTimeout(() => {
                         setHasError((prev) => ({ ...prev, increment: false }));
-                      }, 1000);
+                      }, 2000);
                     }
                   }}
                 >
                   +120s
-                  {!hasError.increment
-                    ? null
-                    : "Error: cant increment further"}
                 </button>
                 <button
                   className="h-12 w-12 -translate-x-0.5 -translate-y-0.5 rounded-[50%] bg-(--primary-light) text-(--text-primary) shadow-[3px_3px_12px_1px_rgba(25,41,66,0.16)] hover:bg-(--primary-hover) hover:text-(--text-on-primary) active:translate-x-0 active:translate-y-0 active:shadow-none"
@@ -103,14 +106,11 @@ export default function Homepage() {
                       setHasError((prev) => ({ ...prev, decrement: true }));
                       setTimeout(() => {
                         setHasError((prev) => ({ ...prev, decrement: false }));
-                      }, 1000);
+                      }, 2000);
                     }
                   }}
                 >
                   -120s
-                  {!hasError.decrement
-                    ? null
-                    : "Error: cant decrement further"}
                 </button>
               </div>
             ) : null}
@@ -142,7 +142,7 @@ export default function Homepage() {
                     setHasError((prev) => ({ ...prev, playback: true }));
                     setTimeout(() => {
                       setHasError((prev) => ({ ...prev, playback: false }));
-                    }, 1000);
+                    }, 2000);
                   }
                 }}
               >
@@ -152,10 +152,12 @@ export default function Homepage() {
                     ? "RESUME"
                     : "START"}
               </button>
+            </div>
+            <p className="absolute top-67 whitespace-nowrap">
               {!hasError.playback
                 ? null
-                : "Error: Unable to start the timer, please set your timer first"}
-            </div>
+                : "What exactly are you timing with this?"}
+            </p>
           </div>
           <h3 className="text-[22px] font-bold text-(--text-primary)">
             Pomodoro
