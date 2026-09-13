@@ -4,7 +4,7 @@ import subtitle from "../assets/subtitles.vtt";
 import { useEffect, useState } from "react";
 
 export default function Homepage() {
-  const [initialDuration, setInitialDuration] = useState(2);
+  const [initialDuration, setInitialDuration] = useState(1440);
   const [tick, setTick] = useState(initialDuration);
   const [status, setStatus] = useState(false);
   const [hasError, setHasError] = useState({
@@ -76,10 +76,7 @@ export default function Homepage() {
                   <button
                     className="h-12 w-12 -translate-x-0.5 -translate-y-0.5 rounded-[50%] bg-(--primary-light) text-(--text-primary) shadow-[3px_3px_12px_1px_rgba(25,41,66,0.16)] hover:bg-(--primary-hover) hover:text-(--text-on-primary) active:translate-x-0 active:translate-y-0 active:shadow-none"
                     onClick={() => {
-                      if (initialDuration + 120 <= 3600) {
-                        setInitialDuration((prev) => prev + 120);
-                        setTick((prev) => prev + 120);
-                      } else {
+                      if (initialDuration >= 3600) {
                         setHasError((prev) => ({ ...prev, increment: true }));
                         setTimeout(() => {
                           setHasError((prev) => ({
@@ -87,6 +84,10 @@ export default function Homepage() {
                             increment: false,
                           }));
                         }, 2000);
+                      } else {
+                        const next = Math.min(initialDuration + 120, 3600);
+                        setInitialDuration(next);
+                        setTick(next);
                       }
                     }}
                   >
@@ -102,10 +103,7 @@ export default function Homepage() {
                   <button
                     className="h-12 w-12 -translate-x-0.5 -translate-y-0.5 rounded-[50%] bg-(--primary-light) text-(--text-primary) shadow-[3px_3px_12px_1px_rgba(25,41,66,0.16)] hover:bg-(--primary-hover) hover:text-(--text-on-primary) active:translate-x-0 active:translate-y-0 active:shadow-none"
                     onClick={() => {
-                      if (initialDuration - 120 >= 0) {
-                        setInitialDuration((prev) => prev - 120);
-                        setTick((prev) => prev - 120);
-                      } else {
+                      if (initialDuration <= 0) {
                         setHasError((prev) => ({ ...prev, decrement: true }));
                         setTimeout(() => {
                           setHasError((prev) => ({
@@ -113,6 +111,10 @@ export default function Homepage() {
                             decrement: false,
                           }));
                         }, 2000);
+                      } else {
+                        const next = Math.max(initialDuration - 120, 0);
+                        setInitialDuration(next);
+                        setTick(next);
                       }
                     }}
                   >
