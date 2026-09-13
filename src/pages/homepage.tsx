@@ -2,9 +2,10 @@ import Cloud from "../assets/cloud";
 import videoPlaceholder from "../assets/VideoPlaceholder.mp4";
 import subtitle from "../assets/subtitles.vtt";
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 export default function Homepage() {
-  const [initialDuration, setInitialDuration] = useState(1440);
+  const [initialDuration, setInitialDuration] = useState(40);
   const [tick, setTick] = useState(initialDuration);
   const [status, setStatus] = useState(false);
   const [hasError, setHasError] = useState({
@@ -61,7 +62,12 @@ export default function Homepage() {
           <Cloud />
           <div className="absolute top-4 left-1/2 w-32 -translate-y-full rounded-4xl border-2 border-solid border-(--border-strong) bg-(--bg-surface) p-2 text-center text-xs wrap-break-word text-(--text-primary) sm:w-40 sm:text-[15px]">
             Hello, I will explain a summary of the specific feature shown in
-            this video.
+            this video. Also please press these links lol
+            <nav className="mt-7">
+              <Link to="/dashboard"> dashboard </Link>
+              <Link to="/login"> login </Link>
+              <Link to="/signup"> signup </Link>
+            </nav>
           </div>
         </div>
       </div>
