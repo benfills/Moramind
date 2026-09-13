@@ -14,15 +14,25 @@ export default function Login() {
   const [password, setPassword] = useState<string>("");
   const [pos, setPos] = useState({ x: 50, y: 50 });
   const [respond] = useState<string[]>([
-    "Please respect my personal space",
-    "Your behavior is unacceptable",
-    "I must ask you to keep your distance",
+    "what a douchebag",
+    "son of a bitch",
+    "you stupid",
     "Stop touching me",
     "I am not comfortable with this physical contact.",
     "I did not give you permission to touch me",
     "I expect you to respect my boundaries",
   ]);
+  const [msgIndex, setMsgIndex] = useState(0);
   const threshold = 90;
+
+  function pickNext(current: number) {
+    if (respond.length <= 1) return current;
+    let next = current;
+    while (next === current) {
+      next = Math.floor(Math.random() * respond.length);
+    }
+    return next;
+  }
 
   return (
     <div
@@ -47,18 +57,19 @@ export default function Login() {
             x: (newCx / stage.width) * 100,
             y: (newCy / stage.height) * 100,
           });
+          setMsgIndex((current) => pickNext(current));
         }
       }}
     >
       <div
-        className="absolute flex h-40 w-50 -translate-x-1/2 -translate-y-1/2 cursor-pointer items-center justify-center transition-all duration-150 ease-out"
+        className="absolute z-10 flex h-40 w-50 -translate-x-1/2 -translate-y-1/2 cursor-pointer items-center justify-center transition-all duration-150 ease-out"
         style={{ left: `${pos.x}%`, top: `${pos.y}%` }}
       >
         <Cloud />
         <div
-          className={`absolute bottom-0 flex max-w-40 translate-x-6 -translate-y-22 items-center justify-center rounded-4xl border-2 border-solid border-white bg-white p-2 text-[15px] wrap-break-word`}
+          className={`absolute bottom-0 flex max-w-40 translate-x-17 -translate-y-32 items-center justify-center rounded-4xl border-2 border-solid border-black bg-white p-2 text-[15px] wrap-break-word`}
         >
-          {`${respond[Math.floor(Math.random() * respond.length)]}`}
+          {respond[msgIndex]}
         </div>
       </div>
       <div className="flex h-96 w-full flex-col items-center justify-center border-2 border-solid">
