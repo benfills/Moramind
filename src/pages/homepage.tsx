@@ -44,7 +44,7 @@ export default function Homepage() {
           Try Now
         </button>
       </div>
-      <div className="relative mx-auto mt-10 aspect-502/324 w-full max-w-125.5">
+      <div className="relative mx-auto mt-30 aspect-502/324 w-full max-w-125.5">
         <div className="absolute inset-0 flex flex-col items-center justify-center rounded-lg bg-(--bg-secondary)">
           <video className="h-full w-full object-cover" controls>
             <source src={videoPlaceholder} type="video/mp4" />
@@ -60,9 +60,10 @@ export default function Homepage() {
         </div>
         <div className="absolute -top-15 left-0 z-10 aspect-105/76 w-[28%] max-w-40.5 min-w-22.5 -translate-x-1/4 sm:-translate-x-1/3">
           <Cloud />
-          <div className="absolute top-4 left-1/2 w-32 -translate-y-full rounded-4xl border-2 border-solid border-(--border-strong) bg-(--bg-surface) p-2 text-center text-xs wrap-break-word text-(--text-primary) sm:w-40 sm:text-[15px]">
+          <div className="absolute top-4 left-0 w-[calc(100vw-32px)] -translate-y-full rounded-4xl border-2 border-solid border-(--border-strong) bg-(--bg-surface) p-2 text-center text-xs wrap-break-word text-(--text-primary) sm:left-1/2 sm:w-max sm:max-w-sm sm:-translate-x-1/2 sm:text-[15px]">
             Hello, I will explain a summary of the specific feature shown in
-            this video. Also please press these links lol
+            this video. Also please press/click these links lol press/click
+            these links lol
             <nav className="mt-7">
               <Link to="/dashboard"> dashboard </Link>
               <Link to="/login"> login </Link>
