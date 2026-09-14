@@ -62,13 +62,7 @@ export default function Homepage() {
           <Cloud />
           <div className="absolute top-4 left-0 w-[calc(100vw-32px)] -translate-y-full rounded-4xl border-2 border-solid border-(--border-strong) bg-(--bg-surface) p-2 text-center text-xs wrap-break-word text-(--text-primary) sm:left-1/2 sm:w-max sm:max-w-sm sm:-translate-x-1/2 sm:text-[15px]">
             Hello, I will explain a summary of the specific feature shown in
-            this video. Also please press/click these links lol press/click
-            these links lol
-            <nav className="mt-7">
-              <Link to="/dashboard"> dashboard </Link>
-              <Link to="/login"> login </Link>
-              <Link to="/signup"> signup </Link>
-            </nav>
+            this video.
           </div>
         </div>
       </div>
