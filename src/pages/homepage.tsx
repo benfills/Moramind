@@ -2,7 +2,6 @@ import Cloud from "../assets/cloud";
 import videoPlaceholder from "../assets/VideoPlaceholder.mp4";
 import subtitle from "../assets/subtitles.vtt";
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
 
 export default function Homepage() {
   const [initialDuration, setInitialDuration] = useState(40);
