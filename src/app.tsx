@@ -3,7 +3,7 @@ import Homepage from "./pages/homepage";
 import Signup from "./pages/signup";
 import Login from "./pages/login";
 import Forgotpassword from "./pages/forgotpassword";
-import Dashboard from "./pages/dashboardOriginal";
+import Dashboard from "./pages/dashboardDemo";
 
 export default function App() {
   return (
