@@ -1,527 +1,481 @@
 .
-├── app.tsx
-├── assets
-│   ├── aichatboxicon.tsx
-│   ├── bookicon.tsx
-│   ├── journalicon.tsx
-│   ├── mathicon.tsx
-│   ├── moramindhomepagewallpaper.png
-│   ├── productivityicon.tsx
-│   └── settingsicon.tsx
-├── component
-├── context
-│   ├── authcontext.tsx
-│   └── auth.tsx
-├── index.css
-├── lib
-│   └── supabase.ts
-├── main.tsx
-├── pages
-│   ├── forgotpassword.tsx
-│   ├── homepage.tsx
-│   ├── login.tsx
-│   └── signup.tsx
+├── .env.local
+├── eslint.config.js
+├── .git
+│   ├── COMMIT_EDITMSG
+│   ├── config
+│   ├── description
+│   ├── FETCH_HEAD
+│   ├── HEAD
+│   ├── hooks
+│   │   ├── applypatch-msg.sample
+│   │   ├── commit-msg.sample
+│   │   ├── fsmonitor-watchman.sample
+│   │   ├── post-update.sample
+│   │   ├── pre-applypatch.sample
+│   │   ├── pre-commit.sample
+│   │   ├── pre-merge-commit.sample
+│   │   ├── prepare-commit-msg.sample
+│   │   ├── pre-push.sample
+│   │   ├── pre-rebase.sample
+│   │   ├── pre-receive.sample
+│   │   ├── push-to-checkout.sample
+│   │   ├── sendemail-validate.sample
+│   │   └── update.sample
+│   ├── index
+│   ├── info
+│   │   ├── exclude
+│   │   └── refs
+│   ├── logs
+│   │   ├── HEAD
+│   │   └── refs
+│   │       ├── heads
+│   │       │   └── main
+│   │       └── remotes
+│   │           └── Moramind1
+│   │               ├── HEAD
+│   │               └── main
+│   ├── objects
+│   │   ├── 01
+│   │   │   ├── 1e344435533306d3f1a444b52ab07f252a2800
+│   │   │   └── 33650af6d057d118ea6b4a42430590fe9bb13c
+│   │   ├── 02
+│   │   │   └── 9cb9a67a589d9861f8e82bbf90d731816489ac
+│   │   ├── 03
+│   │   │   └── 216a972994e2f6897b3acc5b843033b4063b62
+│   │   ├── 04
+│   │   │   ├── 4439a1c507f063da1d79c9a3edf3109e4dddbc
+│   │   │   └── bc95fe2ba1cbed93638392a2c15d61d9d6810b
+│   │   ├── 05
+│   │   │   └── 8566e7a31cd581e3459f27b3f5b1fcbf168ad9
+│   │   ├── 07
+│   │   │   └── 6baa17177f9a45f20d81e73fa2a9e68b920923
+│   │   ├── 08
+│   │   │   └── 256e833e8c4328f36b95d2964f5441b38bd7a1
+│   │   ├── 09
+│   │   │   ├── 7846944c5ea176a117f86c98829a8caa458dfe
+│   │   │   └── b02b1372c04eb83131eb2af1e78159abf62cfd
+│   │   ├── 0a
+│   │   │   └── 1664edf4cf7febc7de74867d7584308a179c42
+│   │   ├── 0e
+│   │   │   ├── 608c32d8a016d8ce01c4e48121f6de0dabdb4f
+│   │   │   ├── 7ad81dcc0d837ce009c608cbcf33993f7042ff
+│   │   │   └── cb880aad2b1d8327babd486e59ca0c85f4592a
+│   │   ├── 12
+│   │   │   └── cfa88e4e7ecbe769c90d470200b280cd1f5e90
+│   │   ├── 13
+│   │   │   └── 8f9eee84d2f40b0cf5df0666bae0a05f1af180
+│   │   ├── 14
+│   │   │   ├── 1c6d6a44a2c90637b575ac0b37548e24781817
+│   │   │   └── 40ac26e9204ac464dfe3e4f962bc7939613da8
+│   │   ├── 15
+│   │   │   └── 8c97a456678433d717c4bf560abc9fe78bc1ab
+│   │   ├── 16
+│   │   │   ├── 019e9dc53bc4b22c36fa631f5f5a26de34da43
+│   │   │   └── 4e037d908668e73a8d81399ec74f56d537adbe
+│   │   ├── 17
+│   │   │   └── 025b18999b34ef9cfbdcf2e4a86ed3ca7f77c2
+│   │   ├── 18
+│   │   │   └── 71e4de56b0cdfc47222294fcc8d6191cf863c7
+│   │   ├── 1e
+│   │   │   └── 8bbee9bb641bbbfbf800616bd4496b86aef502
+│   │   ├── 1f
+│   │   │   └── da128d84bbf22a7450b47dd199e618b2b76b5e
+│   │   ├── 20
+│   │   │   └── 1eea240ea9598b7d61d61631a51777401ce466
+│   │   ├── 21
+│   │   │   └── 697cf78c3580e871ef014a99dd8efdc9a5f337
+│   │   ├── 22
+│   │   │   ├── 4b318dd483e794031ef7a7b80e4ead42f30edc
+│   │   │   └── d7c045d4a3b32a0400e2a632f74e797e280d2e
+│   │   ├── 23
+│   │   │   └── 8c996172c67dc8ef67e5152130cc43802c28b6
+│   │   ├── 24
+│   │   │   └── 2ad7c38f8d8905cd95f7581122b5f176828235
+│   │   ├── 26
+│   │   │   ├── bc3ac5824ca046ce5e7b18a74dcb286c841849
+│   │   │   └── d6eef6ffafad4806e740c456f2f5d0bf1ea3f6
+│   │   ├── 28
+│   │   │   └── 705f0db11eb5b48dfe902204764c9bc461a92f
+│   │   ├── 29
+│   │   │   ├── 1219d9e2ea7cf68f11ba07361490ebe4e6e0c4
+│   │   │   ├── 551f46ada91908a918dac7f129ff7525432f81
+│   │   │   └── fe685f2bda2b3e35df5995b8ee6ef8e9aae76b
+│   │   ├── 2b
+│   │   │   └── d55ea188b60819de7e30147ceb9c28335c99e5
+│   │   ├── 2d
+│   │   │   ├── 8dd7b239cfc5d054127e2b28c9283b1afa834a
+│   │   │   └── f1b3a8769fe53bc3032a92be67d31a3c3fa702
+│   │   ├── 2f
+│   │   │   ├── 6f900954e10826f26ab8bd663ec684fa06b4fd
+│   │   │   ├── 7abf53a3dbb4701abc356d3ab1951f287f5ec8
+│   │   │   └── aab648207c2c8fd6e90b2a259cbd2ccd21bdf9
+│   │   ├── 30
+│   │   │   ├── 21b3fb5bc472e6d5cd3e8340b426d91806691d
+│   │   │   └── b0030733950c552e72ee767f195a48acb76a51
+│   │   ├── 31
+│   │   │   └── 5c2ec7f3942166948ea3b4bd64c8c3b51c8f73
+│   │   ├── 32
+│   │   │   └── 23564051b6951fa3a2af6c157a3aa722a746ae
+│   │   ├── 33
+│   │   │   └── 9f83f91b2e4d2c49c7cc8e73486f65570a034b
+│   │   ├── 34
+│   │   │   └── 1cca5a6b20e17a0b3ddc93d250074dd28d4def
+│   │   ├── 35
+│   │   │   └── 18a70603d6e9aa5395e1d1461163cf192833c9
+│   │   ├── 36
+│   │   │   └── 045e71a4a678028cffac5b250dbdf1cef78141
+│   │   ├── 3a
+│   │   │   └── 92d169e3f615f6b4e035a9880728e68a8ea37e
+│   │   ├── 3c
+│   │   │   ├── 97a44cde164f38dae8e5766b7d33095c73e48d
+│   │   │   └── b21f938d2ca87c82f822795332260f121bd190
+│   │   ├── 3d
+│   │   │   ├── 163d614e8d11634ca4c88854490175b1d90eba
+│   │   │   └── ffa0570b2a488cd360e2c6be3e5582e2a8b521
+│   │   ├── 3f
+│   │   │   └── 957d5fe2f5ceb756ab4f55cc37398b7ffc737a
+│   │   ├── 41
+│   │   │   └── 35017149a44c0465da205391d4061f9d2cf70c
+│   │   ├── 42
+│   │   │   └── 42671846984b6217bbcfac69a192b7f6e3a0a0
+│   │   ├── 44
+│   │   │   └── 0d3c10ed926f15c07b3c78fd17db78813becd6
+│   │   ├── 47
+│   │   │   ├── 9061a5a3dbbf51a168c3a674b6cf708c6e9ad3
+│   │   │   └── d0326bd5f9dd99aa017233191e29a90643bf55
+│   │   ├── 4b
+│   │   │   ├── 39d89d9621d2bbf6f585bb82e6d389fdd576fd
+│   │   │   └── 531ffeb650d03d7fe104387230cf1ac8f73666
+│   │   ├── 4e
+│   │   │   └── 8101c9b5dfa10b2308bb7bbb493eb3c5520423
+│   │   ├── 4f
+│   │   │   └── 6a07749eb9b601a74ce68d24350b62dc2f0a2a
+│   │   ├── 53
+│   │   │   ├── 05c0bcb9e3bec372148ff0e613e3ba969b0966
+│   │   │   ├── 48f0e5c983ddd635635d6f05f7e5f036d5bcbc
+│   │   │   └── 6486a694fe2c236d46c03e5f8152b299710d77
+│   │   ├── 56
+│   │   │   └── 1c104be051eecb77cf93f1d1961058dba7bb9b
+│   │   ├── 57
+│   │   │   └── 47494bdd164f8540daa19063fdf4516055894c
+│   │   ├── 58
+│   │   │   ├── 31d9d56bc238c48ddad7d8123bea8284dfeb77
+│   │   │   ├── d5c396de74d627c46902bfba9a4bb3f52ad179
+│   │   │   └── f8d92792f68e76e07c923d97d0b9f953aeb631
+│   │   ├── 59
+│   │   │   └── d6aab76533302d78c276c30bc48c3c7e1f3885
+│   │   ├── 5b
+│   │   │   ├── 80aae6b264954d1bd5580a70e7d54b12969505
+│   │   │   └── d72d21d0132207cd595694f1e58905980d33c8
+│   │   ├── 5c
+│   │   │   ├── 15ac2ef9637754bd364505f1187788cb7860df
+│   │   │   └── 1d3dde3df87333f774762263ada89abaaad66e
+│   │   ├── 5d
+│   │   │   └── 7cb81c6138bea91d96ff3bd2cd65f2985ed4e5
+│   │   ├── 60
+│   │   │   ├── 11acda52d14b1d9d097262c01bc8d0b62ceb16
+│   │   │   └── f8e14b3b6448c0bccea6d1f4238e3e8a7feb26
+│   │   ├── 61
+│   │   │   └── c57ee480c8f19c021b2ecba2d152032bd24150
+│   │   ├── 66
+│   │   │   └── c5562255fc710f48335035b38269876f660e2c
+│   │   ├── 69
+│   │   │   └── 2c3d7e43469b69d14eed277254c42a04b8bb56
+│   │   ├── 6b
+│   │   │   └── 15b96dff51279db06c39ca51fb92627d5bbba9
+│   │   ├── 6d
+│   │   │   ├── 0e198dcdc76b1621ab8fe7257497c9335b04a5
+│   │   │   └── e4b7d6219057b62306711090485bc975251c9f
+│   │   ├── 6e
+│   │   │   └── ab6217830ab8796f7f577fbbc647fda9e02c94
+│   │   ├── 6f
+│   │   │   └── 64a9be42dc6f8909c6020503d9194f1980c658
+│   │   ├── 71
+│   │   │   └── 6aadb89782f60bf181367ae3008aa856d358bd
+│   │   ├── 72
+│   │   │   ├── 6262d4063226b7dff2f6da9b68470560f20f7c
+│   │   │   └── 767aaeed70db478bd6806c21735888cb8b87a0
+│   │   ├── 73
+│   │   │   ├── 0927d8eb75ef19500910f544e57ffaae96f509
+│   │   │   ├── 3de6fb2b4084964523cef5850e59b7f4547e87
+│   │   │   └── 98fd4a398dab715a09b1771ff676da321984fd
+│   │   ├── 74
+│   │   │   └── 264757acb0402e08951c97586b2ddab231e26b
+│   │   ├── 75
+│   │   │   ├── 228057f3a4246fa3b9f257c60035d4bda87d67
+│   │   │   ├── a805270cf14b1f517988dc5f959cb7a8b6a5f6
+│   │   │   └── e9dad4a1ef0dd2f145b19f8c9dd549106d3817
+│   │   ├── 76
+│   │   │   └── 31b2fa5f176761bceb6100368390d70d79dd82
+│   │   ├── 77
+│   │   │   └── 3567a0f0cd20d5be8f4509c89cd419327f5789
+│   │   ├── 7d
+│   │   │   └── b82eb0c4a7a03697c346734663ff500a013cb8
+│   │   ├── 7e
+│   │   │   └── 54a8958d2d4e91f46243bdcb22873d2ab3b76c
+│   │   ├── 7f
+│   │   │   └── c4f16309869968a16a316e7af613c781efb945
+│   │   ├── 80
+│   │   │   ├── d2b39e284562fbe218442e477b66beede89e8d
+│   │   │   ├── e91b547155685b7f3a1c913b7aafd08fa13c1a
+│   │   │   └── f41e0bedb5008fb3eaff6904a6438d2ea8e972
+│   │   ├── 81
+│   │   │   └── 029ba775b553ef62ab38869674fb46d6f07a6c
+│   │   ├── 84
+│   │   │   └── ad50e0f638e1094ad28aaef74be8007cc2b43e
+│   │   ├── 85
+│   │   │   └── 33f976ac4fcdf8082e1cbdd4a55a914c9cf4bb
+│   │   ├── 87
+│   │   │   └── edc920f5185d8c25a1a775b45d1d99bf88d9a9
+│   │   ├── 88
+│   │   │   ├── 4babfd4b462be47e6dc43671647ab77d4ede29
+│   │   │   ├── ad435599e7df0c99fc63e1e55dcd1646c28431
+│   │   │   └── ce3775908fa46ef80b1b9797f4f9d7ffc2c5d9
+│   │   ├── 89
+│   │   │   └── 59bb0f069092544e125f6e5f55c38a971d9ac0
+│   │   ├── 8a
+│   │   │   └── 5857badd54dbedd789da34d9c66aaec22adc83
+│   │   ├── 8b
+│   │   │   └── 3e663f629916b9065670c398a61238453ef305
+│   │   ├── 8c
+│   │   │   ├── 4e14cd8d41c1148020eba2a588900b8d3ef25b
+│   │   │   ├── b539d4cf6d3479e65dccea596cb78fba7a15e8
+│   │   │   └── ba956f875331156f5d543cd19d3bde6ad30bbb
+│   │   ├── 8e
+│   │   │   └── bcabe9fd0196cb1baa0e09f123df1d544ebd86
+│   │   ├── 8f
+│   │   │   └── 7ec17265c688e78f2d461364df1882f02750f4
+│   │   ├── 90
+│   │   │   └── c138ddcbef5ab24af017276d89bc58ca582f87
+│   │   ├── 91
+│   │   │   ├── 250166659b3963ccbf1182437b53a94665980a
+│   │   │   └── 68112be1a1023cfc69a9099613cfa47051c209
+│   │   ├── 92
+│   │   │   └── 67ec69f877ed04e15a2c4ff88e0acd3b898369
+│   │   ├── 93
+│   │   │   └── 19bd80a7fc705b2571a83764ff243c14d2f679
+│   │   ├── 94
+│   │   │   ├── 08d59ad511b79addf0d8043073f4f80e5dc912
+│   │   │   └── 47b03126dcc3d814920664dcf65361c9edec68
+│   │   ├── 95
+│   │   │   └── 6f12a60b98c1631f2ed7adc9a4b80e281db8e8
+│   │   ├── 96
+│   │   │   ├── bd62b5109db55a0be7005d21cc13ee399e5406
+│   │   │   └── cb2558d3c1c7c452aca8a231c6806afa4a949c
+│   │   ├── 99
+│   │   │   └── 2ab99841899575fe1a4178f5779255e3570032
+│   │   ├── a2
+│   │   │   └── 2448cd6e7da2a3fc1690dc3b0a3ba1010de91a
+│   │   ├── a3
+│   │   │   └── 8f88d08443898bd8410483cc24a406404e944a
+│   │   ├── a4
+│   │   │   ├── 9100c076148fb423c8c566e993ce7a9187a622
+│   │   │   └── c4408150a7a9e0e1a28dee94d273dd3e4d5a49
+│   │   ├── a5
+│   │   │   ├── 330056b52de19a6190ea07c743ea131e164a8b
+│   │   │   └── a1376234283996651f73d306fef4aaaba2c226
+│   │   ├── a7
+│   │   │   └── a4868bf9f74ac913c73656b520376f6f98fc6e
+│   │   ├── a8
+│   │   │   ├── 23feb6afe48860a5341f6dd3d0cad09db73a35
+│   │   │   ├── 7173169b58d109728af4f2199fe4259c8f6459
+│   │   │   └── beb23793dce9c41d036d86fbab9b276aba1e55
+│   │   ├── a9
+│   │   │   └── cfd437aa89efd2b6c32c655777966c10073dcb
+│   │   ├── ab
+│   │   │   └── 214bd0eef73be8b6f8090c19b1bf25e7bd0e6a
+│   │   ├── ad
+│   │   │   └── 449a52fbd5db31036fb07ba02b8ce8ed29323f
+│   │   ├── af
+│   │   │   ├── 1b741a9ea2afe1fa7308bf5b53103f8fc8ac7d
+│   │   │   ├── 1e29c65604a6897c7548d39364d97cac1e15f4
+│   │   │   └── 7c8e1a3b7f3d8dbc1dd8b8c1427eac65b153a9
+│   │   ├── b1
+│   │   │   └── 574bdde438f3aba0a026be143adeb6b5922ea8
+│   │   ├── b2
+│   │   │   └── 8a15088271759fa1956a8c80cf9fc8ca298d1f
+│   │   ├── b3
+│   │   │   └── cc2167c995a621df01b4cbfc02be4f97e3235d
+│   │   ├── b4
+│   │   │   └── bfed3579c4afed352be3bdd29abdb42c784e50
+│   │   ├── b7
+│   │   │   ├── 058b0575647efb4b2d459373235197a5b731e7
+│   │   │   ├── 626c10cfa68087fd6241af262dd4b61c29106f
+│   │   │   └── ac3630f9e638523ba495ddbcab8f5ff858950f
+│   │   ├── b8
+│   │   │   ├── d1359155fe74c137eb55ec528fd5244de0e613
+│   │   │   └── d7d1620f292fd8d1fea6c7c5b0d8ecd5004033
+│   │   ├── bb
+│   │   │   └── 2452dee8082bbc2dbdfd2e73e7b3fce8e14470
+│   │   ├── bc
+│   │   │   └── 6859ceda679494ff656a58ca045831573a845e
+│   │   ├── bd
+│   │   │   └── 65895acc237021e6ef43c6bdcb2e9692704ff4
+│   │   ├── be
+│   │   │   ├── d03f8f6c713ab39dd241ed68f4828d960dbccd
+│   │   │   └── f1ccb25cfe1c7a7d0dc386f93cfa1dcd0a591b
+│   │   ├── c0
+│   │   │   └── 6c2ae50c59378630b95a80ae692f13bf97920e
+│   │   ├── c1
+│   │   │   └── d3a641b80e18bd537b8d3512fbcd7400817965
+│   │   ├── c4
+│   │   │   └── 878af872a60fec2bfd6e5da27c0096a5fe0b41
+│   │   ├── c6
+│   │   │   ├── 79c5f0e12f43f0db26f341cc983a5c69f81b11
+│   │   │   └── f3f208a80db21633bebca335c455b910f9e161
+│   │   ├── ca
+│   │   │   └── acc421e087b90dd4935d01edff4af011265a64
+│   │   ├── cb
+│   │   │   ├── 857115c474118e9d9f99ec29a8654e45847003
+│   │   │   └── 88734ed966b7c464a0c8228966b00538e66db0
+│   │   ├── cc
+│   │   │   └── 9fe692a54cdab60df699e2f94cca1e4bb33c1a
+│   │   ├── cd
+│   │   │   └── ea3acbc68d1225d8869a4d98ac2c45ff4afe1c
+│   │   ├── ce
+│   │   │   ├── 23683e114461d96874ccb0c43249633deba7d9
+│   │   │   └── 2ec58e149ff814ba3d1c3ecdbb29e7d83b0029
+│   │   ├── d0
+│   │   │   ├── 413e488b766da2ff2c117a6c05883e579a3edb
+│   │   │   └── 506dd7b9793e19e0c45e58ee8413c0f2f899c0
+│   │   ├── d2
+│   │   │   └── 5d33730cc6d29b52141150377d680a36ff900e
+│   │   ├── d3
+│   │   │   └── d32efd0b7b4ba6ee82ef535d3d78f91a493e64
+│   │   ├── d5
+│   │   │   ├── 4d7581ab44d16fe510f707dbd0dcf5b84118bc
+│   │   │   └── e62d372327393394c1315d7ecb851436e54ed9
+│   │   ├── d6
+│   │   │   └── d230e28c7b0cefecd64a829d573318314c6c27
+│   │   ├── d7
+│   │   │   └── de5a9b6c0313d691825e88674b1dc9d9f028d6
+│   │   ├── d8
+│   │   │   └── 76b8b4640ffc301ade4800eebe6f54eafe4376
+│   │   ├── da
+│   │   │   ├── 6f0265978c7b51d36d0e12ed155a0b3de6f8f8
+│   │   │   └── 857665e1135206e5266b14c7556f9484d0db99
+│   │   ├── db
+│   │   │   ├── 579d2c764e07172df7042c939f27ca1b6f294c
+│   │   │   └── 8dc61bac4c878b894736a611688da02af3f531
+│   │   ├── dd
+│   │   │   ├── 58f29433ca745f83514102842d01a4ebe9ec17
+│   │   │   ├── b6ca657fc853f0e55955ee228c78fc8c7e7d6c
+│   │   │   └── c81727ada7abcca176a3b5187742b56cce311a
+│   │   ├── de
+│   │   │   ├── 210ba5daf0467472b838f5c0a4f842d8c3a5c6
+│   │   │   └── f9ac4f1137455a8c4f7525cfe8ea575678f90f
+│   │   ├── e1
+│   │   │   ├── 7c2e8bef95583d29d8f1507e16069fae5873db
+│   │   │   └── c5afd6ae25bea7a4a78ba8adf9ff0b3c8e99f7
+│   │   ├── e2
+│   │   │   ├── 6c49d6220d9cdfa164b2127b7e271ee4403101
+│   │   │   └── e5cf01c1b0f2cd17374691aef96075283d76f5
+│   │   ├── e4
+│   │   │   └── 766a412354c1a515a4ee059176c35e055785d9
+│   │   ├── e7
+│   │   │   └── 6dce408d071b2850ceced113e7fd44b52fe003
+│   │   ├── e8
+│   │   │   └── cb0b9109862ccec8bd836b3f61b1b74c2f9828
+│   │   ├── e9
+│   │   │   ├── 657d5e349ef5d475d29476adccdde9977c0265
+│   │   │   ├── df5728e18f542a8b3d72a79b74264d65446b0c
+│   │   │   └── f4dd206cfffac1393a36e3f6e11913246e9e2b
+│   │   ├── ef
+│   │   │   └── 1d288a08901ae8c0b758fc17c39102b1a414f2
+│   │   ├── f1
+│   │   │   └── d50aff5ac7984f3af5ad3e2a80044b3e432fce
+│   │   ├── f2
+│   │   │   └── 78974a99c550791db576dbe3ec55a6766e1888
+│   │   ├── f4
+│   │   │   └── 399092b366d702a6ced916fdd34b22af0e9a5a
+│   │   ├── f5
+│   │   │   ├── 9a0a3cb4e642467264bc7f863bf0c10ea21a8d
+│   │   │   └── b5f101faaabe698ad54ab408d1ee87a89e67f1
+│   │   ├── f6
+│   │   │   └── ccc98c93e0aea5d2fbc5aa8ca77e1cbf8c6214
+│   │   ├── f7
+│   │   │   ├── 4a20cb701695c51a9a505587c67eebc685c64e
+│   │   │   └── bf7fe12e3f6d80f1f614f1db498ee5c27d91a8
+│   │   ├── f8
+│   │   │   └── daa18cd7b3a8beacb12878e8838e2117fdfb83
+│   │   ├── f9
+│   │   │   └── 0f2c1685f42f5d7f9234c0adaaf752c3791fce
+│   │   ├── fa
+│   │   │   └── 1f008eb9fd8e2e2a8de88b6c95c58ac56212a0
+│   │   ├── fc
+│   │   │   └── a5f374582b357cfa70f87207d44698952e0fb2
+│   │   ├── fd
+│   │   │   └── 8b7f1436ebc196c2311953b26fc11ea4888517
+│   │   ├── fe
+│   │   │   └── d845c1712a508feb2d03758908193a65c3f4ac
+│   │   ├── ff
+│   │   │   └── 2329cf4b22e14715828db0188062a7a3daf2c8
+│   │   ├── info
+│   │   │   └── packs
+│   │   └── pack
+│   │       ├── multi-pack-index
+│   │       ├── pack-401b2a6fa72a1894399e4c95cb8e60b38142bb7f.idx
+│   │       ├── pack-401b2a6fa72a1894399e4c95cb8e60b38142bb7f.pack
+│   │       ├── pack-401b2a6fa72a1894399e4c95cb8e60b38142bb7f.rev
+│   │       ├── pack-851a6ff94348829eeea21bb06b218b89b91922e2.idx
+│   │       ├── pack-851a6ff94348829eeea21bb06b218b89b91922e2.mtimes
+│   │       ├── pack-851a6ff94348829eeea21bb06b218b89b91922e2.pack
+│   │       └── pack-851a6ff94348829eeea21bb06b218b89b91922e2.rev
+│   ├── ORIG_HEAD
+│   └── refs
+│       ├── heads
+│       │   └── main
+│       ├── remotes
+│       │   └── Moramind1
+│       │       ├── HEAD
+│       │       └── main
+│       └── tags
+├── .gitignore
+├── index.html
+├── LICENSE
+├── Moramind_Project_Documentation.md
+├── package.json
+├── pnpm-lock.yaml
+├── .prettierrc
 ├── public
 │   └── logo.png
-└── types.ts
+├── README.md
+├── src
+│   ├── app.tsx
+│   ├── assets
+│   │   ├── aichatboxicon.tsx
+│   │   ├── bookicon.tsx
+│   │   ├── cloud.tsx
+│   │   ├── journalicon.tsx
+│   │   ├── mathicon.tsx
+│   │   ├── moramindhomepagewallpaper.png
+│   │   ├── productivityicon.tsx
+│   │   ├── settingsicon.tsx
+│   │   ├── subtitles.vtt
+│   │   └── VideoPlaceholder.mp4
+│   ├── component
+│   ├── context
+│   │   ├── authcontext.tsx
+│   │   └── auth.tsx
+│   ├── index.css
+│   ├── lib
+│   │   └── supabase.ts
+│   ├── main.tsx
+│   ├── pages
+│   │   ├── dashboardDemo.tsx
+│   │   ├── dashboard.tsx
+│   │   ├── forgotpassword.tsx
+│   │   ├── homepage.tsx
+│   │   ├── login.tsx
+│   │   └── signup.tsx
+│   ├── ProjectStructure.txt
+│   └── types.ts
+├── tsconfig.app.json
+├── tsconfig.json
+├── tsconfig.node.json
+├── vite.config.ts
+└── .vscode
+    └── tasks.json
 
-7 directories, 19 files
-==> ./lib/supabase.ts <==
-import { createClient } from "@supabase/supabase-js";
-
-const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
-const supabaseAnonKey = import.meta.env.VITE_SUPABASE_PUB_KEY;
-
-if (!supabaseUrl || !supabaseAnonKey) {
-  throw new Error("Missing Supabase env vars — check .env.local");
-}
-
-export const supabase = createClient(supabaseUrl, supabaseAnonKey);
-
-==> ./index.css <==
-@import "tailwindcss";
-
-:root {
-  --surface-1: #006ef5;
-  --surface-2: #ffffff;
-  --border-strong: #94a8c2;
-  --text-primary: #1e293b;
-}
-
-.cloud {
-  anchor-name: --myanchor;
-}
-
-.bubblechat {
-  position: absolute;
-  position-anchor: --myanchor;
-  position-area: top;
-}
-
-.dbg1 {
-  @apply border-4 border-solid border-red-500;
-}
-.dbg2 {
-  @apply border-4 border-solid border-orange-500;
-}
-.dbg3 {
-  @apply border-4 border-solid border-yellow-500;
-}
-.dbg4 {
-  @apply border-4 border-solid border-green-500;
-}
-.dbg5 {
-  @apply border-4 border-solid border-blue-500;
-}
-.dbg6 {
-  @apply border-4 border-solid border-purple-500;
-}
-
-.svgparent {
-  position: absolute;
-  bottom: 0;
-}
-
-.svgparent:hover #plus1 {
-  transition: all 500ms ease-in;
-  opacity: 1;
-  stroke: white;
-  transform: translateY(-70px);
-}
-
-.svgparent:hover #plus2 {
-  stroke: white;
-  transition: all 500ms ease-in 200ms;
-  transform: translateY(-70px);
-}
-
-.book {
-  position: ;
-  width: 100px;
-  height: 100px
-}
-
-.mirror {
-  width: 100%;
-  height: 100%;
-  display: block;
-}
-
-==> ./main.tsx <==
-import { StrictMode } from "react";
-import { createRoot } from "react-dom/client";
-import { BrowserRouter } from "react-router-dom";
-import "./index.css";
-import App from "./app.tsx";
-import { Auth } from "./context/auth.tsx";
-
-createRoot(document.getElementById("root")!).render(
-  <StrictMode>
-    <BrowserRouter>
-      <Auth>
-        <App />
-      </Auth>
-    </BrowserRouter>
-  </StrictMode>
-);
-
-==> ./context/auth.tsx <==
-import { useEffect, useState } from "react";
-import { supabase } from "../lib/supabase";
-import type {
-  AuthResponse,
-  AuthTokenResponsePassword,
-  AuthError,
-  Session,
-  User,
-} from "@supabase/supabase-js";
-import { ctx } from "./authcontext";
-
-export function Auth({ children }: { children: React.ReactNode }) {
-  const [user, setUser] = useState<User | null>(null);
-  const [session, setSession] = useState<Session | null>(null);
-  const [isLoading, setLoading] = useState<boolean>(true);
-  useEffect(() => {
-    supabase.auth.getSession().then(({ data }) => {
-      setLoading(false);
-      setUser(data.session?.user ?? null);
-      setSession(data.session);
-    });
-    const {
-      data: {
-        subscription: { unsubscribe },
-      },
-    } = supabase.auth.onAuthStateChange((event, session) => {
-      console.log(
-        `↳ [Auth] event diterima: "${event}"`,
-        session?.user?.email ?? "(no session)",
-      );
-      if (event === "SIGNED_IN") {
-        setLoading(false);
-        setSession(session);
-        setUser(session?.user ?? null);
-      } else if (event === "SIGNED_OUT") {
-        setLoading(false);
-        setSession(null);
-        setUser(null);
-      } else if (event === "INITIAL_SESSION") {
-        setLoading(false);
-        setSession(session);
-        setUser(session?.user ?? null);
-      } else if (event === "TOKEN_REFRESHED") {
-        setLoading(false);
-        setSession(session);
-        setUser(session?.user ?? null);
-      }
-    });
-    return () => {
-      unsubscribe();
-    };
-  }, []);
-  function signUp(email: string, password: string): Promise<AuthResponse> {
-    return supabase.auth.signUp({ email, password });
-  }
-  function signIn(
-    email: string,
-    password: string,
-  ): Promise<AuthTokenResponsePassword> {
-    return supabase.auth.signInWithPassword({ email, password });
-  }
-  function signOut(): Promise<{ error: AuthError | null }> {
-    return supabase.auth.signOut();
-  }
-  return (
-    <ctx.Provider value={{ user, signIn, signOut, signUp, isLoading, session }}>
-      {children}
-    </ctx.Provider>
-  );
-}
-
-==> ./context/authcontext.tsx <==
-import type {
-  AuthError,
-  AuthResponse,
-  AuthTokenResponsePassword,
-  User,
-  Session
-} from "@supabase/supabase-js";
-import { createContext } from "react";
-
-export interface AuthContext {
-  user: User | null;
-  isLoading: boolean;
-  session: Session | null;
-  signIn: (
-    email: string,
-    password: string
-  ) => Promise<AuthTokenResponsePassword>;
-  signOut: () => Promise<{ error: AuthError | null }>;
-  signUp: (email: string, password: string) => Promise<AuthResponse>;
-}
-
-export const ctx = createContext<AuthContext | null>(null);
-
-==> ./types.ts <==
-export interface Settings {
-  workMin: number;
-  shortBreakMin: number;
-  longBreakMin: number;
-}
-
-==> ./pages/signup.tsx <==
-import { useContext, useState } from "react";
-import { ctx } from "../context/authcontext";
-import "../index.css";
-import HomepageWallpaper from "../assets/moramindhomepagewallpaper.png";
-import { Link } from "react-router-dom";
-
-export default function Signup() {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const authctx = useContext(ctx);
-  if (!authctx) {
-    throw new Error("No Auth Data available");
-  }
-  const { signUp } = authctx;
-  return (
-    <div
-      style={{ backgroundImage: `url(${HomepageWallpaper})` }}
-      className="flex items-center justify-center w-dvw h-dvh max-w-full max-h-full bg-cover bg-no-repeat bg-center"
-    >
-      <div className="h-96 flex flex-col justify-center items-center w-full">
-        <button
-          className="inline-block bg-green-600 text-white text-2xl px-20 py-2 rounded-2xl w-2xl translate-x-2 -translate-y-2 shadow-[-8px_8px_12px_1px_rgba(18,18,18,0.71)] hover:brightness-125 active:shadow-none active:translate-x-0 active:translate-y-0"
-          onClick={() => signUp(email, password)}
-        >
-          {" "}
-          Sign Up{" "}
-        </button>
-        <div className="flex flex-0 justify-center  max-w-full max-h-full">
-          <input
-            className="bg-amber-800 max-w-md mt-2 rounded-lg p-2 border-4 border-blue-900 w-2xs"
-            id="Email"
-            title="email"
-            placeholder="someone@email.com"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
-          <input
-            className="bg-amber-800 max-w-md mt-2 rounded-lg p-2 border-4 border-blue-900 w-2xs"
-            id="Password"
-            title="password"
-            type="password"
-            placeholder="8 Characters Min"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
-        </div>
-        <div className="flex justify-evenly w-2xl">
-          <Link
-            to={"/login"}
-            className="underline text-blue-600 hover:text-blue-800 hover:decoration-3"
-          >
-            {" "}
-            Already have an Account?
-          </Link>
-          <Link
-            to={"/forgotpassword"}
-            className="underline text-blue-600 hover:text-blue-800 hover:decoration-3"
-          >
-            {" "}
-            Forgot Password?{" "}
-          </Link>
-        </div>
-      </div>
-    </div>
-  );
-}
-
-==> ./pages/forgotpassword.tsx <==
-export default function Forgotpassword() {
-    return (
-        <div>
-            Hello
-        </div>
-    )
-}
-
-==> ./pages/login.tsx <==
-import { useContext, useState } from "react";
-import { ctx } from "../context/authcontext";
-import HomepageWallpaper from "../assets/moramindhomepagewallpaper.png";
-
-export default function Login() {
-  const auth = useContext(ctx);
-  if (!auth) {
-    console.error("client not detected");
-    return;
-  }
-  const { signIn } = auth;
-  const [email, setEmail] = useState<string>("");
-  const [password, setPassword] = useState<string>("");
-  const [pos, setPos] = useState({ x: 50, y: 50 });
-  const [respond] = useState<string[]>([
-    "Please respect my personal space",
-    "Your behavior is unacceptable",
-    "I must ask you to keep your distance",
-    "Stop touching me",
-    "I am not comfortable with this physical contact.",
-    "I did not give you permission to touch me",
-    "I expect you to respect my boundaries",
-  ]);
-  const threshold = 90;
-
-  return (
-    <div
-      style={{ backgroundImage: `url(${HomepageWallpaper})` }}
-      className="relative w-full h-screen overflow-hidden bg-(--surface-1)  border-[0.5px] flex justify-center items-center bg-cover bg-no-repeat bg-center"
-      onMouseMove={(e) => {
-        const stage = e.currentTarget.getBoundingClientRect();
-        const mx = e.clientX - stage.left;
-        const my = e.clientY - stage.top;
-        const cx = (pos.x / 100) * stage.width;
-        const cy = (pos.y / 100) * stage.height;
-        const dx = cx - mx;
-        const dy = cy - my;
-        const dist = Math.sqrt(dx * dx + dy * dy);
-        if (dist < threshold) {
-          const angle = Math.atan2(dy, dx);
-          const pushx = Math.cos(angle) * 60;
-          const pushy = Math.sin(angle) * 60;
-          const newCx = Math.min(stage.width - 50, Math.max(50, cx + pushx));
-          const newCy = Math.min(stage.height - 40, Math.max(40, cy + pushy));
-          setPos({
-            x: (newCx / stage.width) * 100,
-            y: (newCy / stage.height) * 100,
-          });
-        }
-      }}
-    >
-      <div
-        className="absolute w-50 h-40 -translate-x-1/2 -translate-y-1/2 transition-all duration-150 ease-out cursor-pointer flex items-center justify-center"
-        style={{ left: `${pos.x}%`, top: `${pos.y}%` }}
-      >
-        <svg viewBox="0 0 180 1" width="270" height="168" className="absolute">
-          <ellipse
-            cx="45"
-            cy="36"
-            rx="43"
-            ry="20"
-            fill="var(--surface-2)"
-            stroke="var(--border-strong)"
-            strokeWidth="1"
-          ></ellipse>
-          <circle
-            cx="24"
-            cy="20"
-            r="16"
-            fill="var(--surface-2)"
-            stroke="var(--border-strong)"
-            strokeWidth="1"
-          ></circle>
-          <circle
-            cx="50"
-            cy="14"
-            r="20"
-            fill="var(--surface-2)"
-            stroke="var(--border-strong)"
-            strokeWidth="1"
-          ></circle>
-          <circle
-            cx="72"
-            cy="24"
-            r="14"
-            fill="var(--surface-2)"
-            stroke="var(--border-strong)"
-            strokeWidth="1"
-          ></circle>
-          <rect
-            x="6"
-            y="30"
-            width="78"
-            height="9"
-            fill="var(--surface-2)"
-          ></rect>
-          <circle cx="36" cy="30" r="3" fill="var(--text-primary)"></circle>
-          <circle cx="54" cy="30" r="3" fill="var(--text-primary)"></circle>
-          <polygon
-            points="90 -20, 100 -10, 69.5 10"
-            fill="var(--surface-2)"
-            stroke="var(--surface-2)"
-          ></polygon>
-        </svg>
-        <div
-          className={`absolute translate-x-6 -translate-y-22 border-2 border-solid max-w-40 bottom-0 wrap-break-word text-[15px] rounded-4xl bg-white flex justify-center items-center border-white p-2`}
-        >
-          {`${respond[Math.floor(Math.random() * respond.length)]}`}
-        </div>
-      </div>
-      <div className="h-96 flex flex-col justify-center items-center w-full border-solid border-2">
-        <button
-          className="inline-block bg-green-600 text-white text-2xl px-20 py-2 rounded-2xl w-2xl translate-x-2 -translate-y-2 shadow-[-8px_8px_12px_1px_rgba(18,18,18,0.71)] hover:brightness-125 active:shadow-none active:translate-x-0 active:translate-y-0"
-          onClick={() => {
-            signIn(email, password)
-              .then((success) => {
-                if (success.data.session) {
-                  alert("User Signed In");
-                } else if (success.error?.name === "AuthRetryableFetchError") {
-                  alert("internet error");
-                } else if (success.error) {
-                  alert(
-                    `unable to sign in:scheck if your password is correct and email exist`,
-                  );
-                } else {
-                }
-              })
-              .catch((error) => {
-                alert(`something went wrong: ${error}`);
-              });
-          }}
-        >
-          {" "}
-          Login{" "}
-        </button>
-        <div className="flex flex-0 justify-center  max-w-full max-h-full">
-          <input
-            className="bg-amber-800 max-w-md mt-2 rounded-lg p-2 border-4 border-blue-900 w-2xs"
-            id="Email"
-            title="email"
-            placeholder="someone@email.com"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
-          <input
-            className="bg-amber-800 max-w-md mt-2 rounded-lg p-2 border-4 border-blue-900 w-2xs"
-            id="Password"
-            title="password"
-            type="password"
-            placeholder="8 Characters Min"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
-        </div>{" "}
-      </div>
-    </div>
-  );
-}
-
-==> ./pages/homepage.tsx <==
-import { useState } from "react";
-import { Link } from "react-router-dom";
-import "../index.css";
-import Mathicon from "../assets/mathicon";
-import Bookicon from "../assets/bookicon";
-import Aichatboxicon from "../assets/aichatboxicon";
-import Settingsicon from "../assets/settingsicon";
-import Productivityicon from "../assets/productivityicon";
-import Journalicon from "../assets/journalicon";
-
-export default function Homepage() {
-  const [check, setCheck] = useState<string>("");
-  return (
-    <div className="h-dvh w-dvw">
-      <div className="bg-[#0B132B] relative h-1/8 w-full flex justify-between items-center text-5xl ">
-        <div className=" w-1/3 flex justify-evenly gap-10 pl-6 ">
-          {/* to be continued */}
-          <Bookicon />
-          <Productivityicon />
-          <Journalicon />
-        </div>
-        <div className="w-full h-full flex items-center justify-center">
-          <div className="absolute inset-[50%_0px_0px_50%] translate-[-50%]  h-1/2 w-96 rounded-full transition-[background-color_0.5s_ease,blur_10s_ease] hover:bg-[rgba(0,229,255,0.12)] hover:blur-[20px]" />
-          {/* to be continued */}
-          <h1 className="absolute inset-[50%_0px_0px_50%] transition-all duration-500 ease-in translate-[-50%] pointer-events-none font-extrabold hover:text-shadow-[1px_0px_2px_#00E5FF,-1px_0px_2px_#00E5FF,0px_1px_2px_#00E5FF,0px_-1px_2px_#00E5FF] text-[#FFFFFF] flex justify-center items-center">
-            {" "}
-            Moramind{" "}
-          </h1>
-        </div>
-        <div className="w-1/3 flex justify-evenly gap-10 pr-6">
-          {/* to be continued */}
-          <Aichatboxicon />
-          <Mathicon />
-          <Settingsicon />
-        </div>
-      </div>
-    </div>
-  );
-}
-
-==> ./app.tsx <==
-import { Routes, Route } from "react-router-dom";
-import Homepage from "./pages/homepage";
-import Signup from "./pages/signup";
-import Login from "./pages/login";
-import Forgotpassword from "./pages/forgotpassword";
-
-export default function App() {
-  return (
-    <div>
-      <Routes>
-        <Route path="/" element={<Homepage />} />
-        <Route path="/signup" element={<Signup />} />
-        <Route path="/login" element={<Login/>}/>
-        <Route path="/forgotpassword" element={<Forgotpassword />}/>
-      </Routes>
-    </div>
-  );
-}
+179 directories, 300 files
