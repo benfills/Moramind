@@ -3,17 +3,16 @@ import Homepage from "./pages/homepage";
 import Signup from "./pages/signup";
 import Login from "./pages/login";
 import Forgotpassword from "./pages/forgotpassword";
-import Dashboard from "./pages/dashboard";
+import Dashboard from "./pages/dashboardOriginal";
 
 export default function App() {
   return (
     <div>
       <Routes>
-        <Route path="/" element={<Homepage />} />
+        <Route path="/" element={<Dashboard />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/login" element={<Login />} />
         <Route path="/forgotpassword" element={<Forgotpassword />} />
-        <Route path="/dashboard" element={<Dashboard />} />
       </Routes>
     </div>
   );
