@@ -7,7 +7,6 @@ import Productivityicon from "../assets/productivityicon";
 import Settingsicon from "../assets/settingsicon";
 
 export default function Dashboard() {
-  const [opacity, setOpacity] = useState(false);
   return (
     <div className="relative flex h-dvh w-dvw flex-col">
       <div className="sticky top-0 flex h-1/8 w-full items-center justify-between bg-[#0B132B] text-5xl">
