@@ -1,4 +1,3 @@
-import { useState } from "react";
 import Aichatboxicon from "../assets/aichatboxicon";
 import Bookicon from "../assets/bookicon";
 import Journalicon from "../assets/journalicon";
