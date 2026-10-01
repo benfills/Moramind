@@ -58,8 +58,6 @@
   position-area: top;
 }
 
-
-
 /* @theme {
   --breakpoint-sm: 360px;
   --breakpoint-md: 768px;
@@ -114,4 +112,37 @@
   width: 100%;
   height: 100%;
   display: block;
+}
+
+.cardfeatures_wrapper {
+  display: grid;
+  width: 100%;
+  flex: 1 1 0%;
+  grid-template-columns: 25% repeat(3, minmax(0, 1fr));
+  grid-template-rows: 298px 1fr;
+  gap: 1.875rem;
+  background-color: #000000;
+  padding: 1.25rem;
+  overflow-wrap: break-word;
+  transition: all 0.3s linear;
+}
+
+.cardfeatures {
+  display: grid;
+  height: 100%;
+  width: 100%;
+  grid-template-columns: 1fr 60px;
+  grid-template-rows: 30px 1fr;
+  overflow: hidden;
+  border-radius: 70px;
+  background-color: #ffffff;
+  border-style: solid;
+  /* border-color: #020617; */
+  border-color: #00ff15;
+  border-width: 0.5rem;
+  color: #ffffff;
+}
+
+.cardfeatures_wrapper:has(.cardfeatures:hover) {
+  grid-template-columns: 50% repeat(3, 1fr);
 }
