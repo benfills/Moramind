@@ -93,12 +93,12 @@
 .svgparent:hover #plus1 {
   transition: all 500ms ease-in;
   opacity: 1;
-  stroke: white;
+  stroke: #F472B6;
   transform: translateY(-70px);
 }
 
 .svgparent:hover #plus2 {
-  stroke: white;
+  stroke: #F472B6;
   transition: all 500ms ease-in 200ms;
   transform: translateY(-70px);
 }
@@ -137,7 +137,6 @@
   border-radius: 70px;
   background-color: #ffffff;
   border-style: solid;
-  /* border-color: #020617; */
   border-color: #00ff15;
   border-width: 0.5rem;
   color: #ffffff;
