@@ -29,31 +29,13 @@ export default function Dashboard() {
           <Settingsicon />
         </div>
       </div>
-      <div className="grid w-full flex-1 grid-cols-4 grid-rows-[298px_1fr] gap-7.5 bg-black p-5 wrap-break-word">
-        <div className=" grid h-full w-full grid-cols-[1fr_60px] grid-rows-[30px_1fr] overflow-hidden rounded-[70px] bg-slate-950 text-white">
+      <div className="cardfeatures_wrapper">
+        <div className="cardfeatures">
           <p className="col-[1/3] bg-amber-500 text-center">Pomodoro Timer</p>
-          {/* State changes from other elements --> read more animation */}
-          <button className="col-[2/3] row-[2/3] bg-slate-700 wrap-break-word">
+          <button className="cardfeatures_more col-[2/3] row-[2/3] opacity-0 bg-slate-700 wrap-break-word hover:opacity-100 transition-opacity duration-200 ease-linear">
             Read more
           </button>
-        </div>
-        <div className="grid h-full w-full grid-cols-[1fr_60px] justify-center rounded-[70px] bg-slate-950 text-white">
-          <p className="text-center">Progress Tracking</p>
-          <button className="col-[2/3] rounded-r-[70px] bg-slate-700 wrap-break-word">
-            Read more
-          </button>
-        </div>
-        <div className="grid h-full w-full grid-cols-[1fr_60px] justify-center rounded-[70px] bg-slate-950 text-white">
-          <p className="text-center">Scheduler</p>
-          <button className="col-[2/3] rounded-r-[70px] bg-slate-700 wrap-break-word">
-            Read more
-          </button>
-        </div>
-        <div className="grid h-full w-full grid-cols-[1fr_60px] justify-center rounded-[70px] bg-slate-950 text-white">
-          <p className="text-center">Habit recovery tracker</p>
-          <button className="col-[2/3] rounded-r-[70px] bg-slate-700 wrap-break-word">
-            Read more
-          </button>
+          {/* use RotateX for fold animation for read mode */}
         </div>
       </div>
     </div>
