@@ -9,7 +9,7 @@ export default function Dashboard() {
   return (
     <div className="relative flex h-dvh w-dvw flex-col">
       <div className="sticky top-0 flex h-1/8 w-full items-center justify-between bg-[#0B132B] text-5xl">
-        <div className="flex w-1/3 justify-evenly gap-10 pl-6">
+        <div className="flex h-full w-1/3 place-items-center gap-10 pl-6">
           {/* to be continued */}
           <Bookicon />
           <Productivityicon />
@@ -22,7 +22,7 @@ export default function Dashboard() {
             Moramind
           </h1>
         </div>
-        <div className="flex w-1/3 justify-evenly gap-10 pr-6">
+        <div className="flex h-full w-1/3 place-items-center gap-10 pr-6">
           {/* to be continued */}
           <Aichatboxicon />
           <Mathicon />
@@ -32,10 +32,9 @@ export default function Dashboard() {
       <div className="cardfeatures_wrapper">
         <div className="cardfeatures">
           <p className="col-[1/3] bg-amber-500 text-center">Pomodoro Timer</p>
-          <button className="cardfeatures_more col-[2/3] row-[2/3] opacity-0 bg-slate-700 wrap-break-word hover:opacity-100 transition-opacity duration-200 ease-linear">
+          <button className="cardfeatures_more col-[2/3] row-[2/3] bg-slate-700 wrap-break-word opacity-0 transition-opacity duration-200 ease-linear hover:opacity-100">
             Read more
           </button>
-          {/* use RotateX for fold animation for read mode */}
         </div>
       </div>
     </div>
