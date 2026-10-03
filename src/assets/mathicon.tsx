@@ -1,9 +1,9 @@
 export default function Mathicon() {
   return (
     <svg
-      width="100"
-      height="100"
-      viewBox="0 0 200 200"
+      width="80"
+      height="80"
+      viewBox="95 23 10 154"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >

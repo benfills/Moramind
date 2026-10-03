@@ -4,15 +4,14 @@ export default function Productivityicon() {
   return (
     <div className="relative">
       <svg
-        viewBox="50 50 100 125"
-        width="100"
-        height="100"
+        viewBox="42 60 116 105"
+        width="80"
+        height="80"
         xmlns="http://www.w3.org/2000/svg"
         role="img"
         fill="none"
       >
         <g>
-          {/* Main productivity / brain shape */}
           <path
             d="M100 55c-20 0-35 12.5-37.5 30-10 5-15 17.5-10 30-5 10-2.5 22.5 7.5 30 2.5 15 15 25 30 25h20c15 0 27.5-10 30-25 10-7.5 12.5-20 7.5-30 5-12.5 0-25-10-30-2.5-17.5-17.5-30-37.5-30z"
             fill="#1F6F8B"
@@ -21,7 +20,6 @@ export default function Productivityicon() {
             strokeLinejoin="round"
           />
 
-          {/* Inner structure */}
           <path
             d="M100 60v105
                M80 75c7.5 5 7.5 15 0 20
@@ -36,7 +34,6 @@ export default function Productivityicon() {
         </g>
       </svg>
 
-      {/* Productivity plus symbols */}
       <svg
         viewBox="40 10 100 220"
         width="100"

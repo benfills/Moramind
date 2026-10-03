@@ -2,11 +2,11 @@ import "../index.css";
 
 export default function Journalicon() {
   return (
-    <div className="book relative">
       <svg
+        className="book relative"
         viewBox="10 105 340 330"
-        width="100"
-        height="100"
+        width="80"
+        height="80"
         xmlns="http://www.w3.org/2000/svg"
       >
         <g transform="translate(0 20)">
@@ -147,6 +147,5 @@ export default function Journalicon() {
           />
         </g>
       </svg>
-    </div>
   );
 }
