@@ -8,18 +8,73 @@ export default function Bookicon() {
       xmlns="http://www.w3.org/2000/svg"
     >
       <path
-        d="M20 62c0-8 70-18 80-10 10-8 80 2 80 10v86c0 8-72-2-80 6-8-8-80 2-80-6Z"
-        fill="#1f6f8b"
-        stroke="#f472b6"
+        d="M 20 62 C 20 54, 90 44, 100 52 C 110 44, 180 54, 180 62 L 180 148 C 180 156, 108 146, 100 154 C 92 146, 20 156, 20 148 Z"
+        fill="#1F6F8B"
+        stroke="#F472B6"
+        strokeWidth="3"
+        strokeLinejoin="round"
+      />
+
+      <path
+        d="M 28 53 C 55 45, 88 50, 100 57 L 100 140 C 88 133, 55 128, 28 136 Z"
+        fill="#1F6F8B"
+        stroke="#F472B6"
+        strokeWidth="2.5"
+        strokeLinejoin="round"
+      />
+
+      <path
+        d="M 172 53 C 145 45, 112 50, 100 57 L 100 140 C 112 133, 145 128, 172 136 Z"
+        fill="#1F6F8B"
+        stroke="#F472B6"
+        strokeWidth="2.5"
+        strokeLinejoin="round"
+      />
+
+      <path
+        d="M 42 74 C 55 69, 73 72, 84 76"
+        stroke="#F472B6"
+        strokeWidth="2.5"
+        strokeLinecap="round"
       />
       <path
-        d="M28 53c27-8 60-3 72 4v83c-12-7-45-12-72-4Zm144 0c-27-8-60-3-72 4v83c12-7 45-12 72-4Z"
-        fill="#1f6f8b"
-        stroke="#f472b6"
+        d="M 42 89 C 55 84, 73 87, 84 91"
+        stroke="#F472B6"
+        strokeWidth="2.5"
+        strokeLinecap="round"
       />
       <path
-        d="M42 74c13-5 31-2 42 2M42 89c13-5 31-2 42 2m-42 13c13-5 31-2 42 2m74-32c-13-5-31-2-42 2m42 13c-13-5-31-2-42 2m42 13c-13-5-31-2-42 2M99 57c1 1 1 82 1 83 0-1 0-82-1-83"
-        stroke="#f472b6"
+        d="M 42 104 C 55 99, 73 102, 84 106"
+        stroke="#F472B6"
+        strokeWidth="2.5"
+        strokeLinecap="round"
+      />
+
+      <path
+        d="M 158 74 C 145 69, 127 72, 116 76"
+        stroke="#F472B6"
+        strokeWidth="2.5"
+        strokeLinecap="round"
+      />
+      <path
+        d="M 158 89 C 145 84, 127 87, 116 91"
+        stroke="#F472B6"
+        strokeWidth="2.5"
+        strokeLinecap="round"
+      />
+      <path
+        d="M 158 104 C 145 99, 127 102, 116 106"
+        stroke="#F472B6"
+        strokeWidth="2.5"
+        strokeLinecap="round"
+      />
+
+      <path
+        d="M 99 57 C 100 58, 100 139, 100 140 C 100 139, 100 58, 99 57"
+        fill="none"
+        stroke="#F472B6"
+        strokeWidth="2.5"
+        strokeLinecap="round"
       />
     </svg>
   );
