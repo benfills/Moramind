@@ -7,7 +7,6 @@ export default function Settingsicon() {
       height="80"
       fill="none"
     >
-      {/* Gear */}
       <g fill="#1F6F8B">
         <rect
           x="18"
@@ -56,7 +55,6 @@ export default function Settingsicon() {
         <circle cx="64" cy="64" r="38" fill="#1F6F8B" />
       </g>
 
-      {/* Center opening */}
       <circle
         cx="64"
         cy="64"
@@ -66,7 +64,6 @@ export default function Settingsicon() {
         strokeWidth="3"
       />
 
-      {/* Inner ring */}
       <circle
         cx="64"
         cy="64"
