@@ -2,7 +2,7 @@ import { Routes, Route } from "react-router-dom";
 import Signup from "./pages/signup";
 import Login from "./pages/login";
 import Forgotpassword from "./pages/forgotpassword";
-import Dashboard from "./pages/dashboardDemo";
+import Dashboard from "./pages/dashboard";
 
 export default function App() {
   return (
