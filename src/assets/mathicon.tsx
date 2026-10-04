@@ -1,123 +1,38 @@
 export default function Mathicon() {
   return (
     <svg
+      xmlns="http://www.w3.org/2000/svg"
       width="80"
       height="80"
-      viewBox="95 23 10 154"
       fill="none"
-      xmlns="http://www.w3.org/2000/svg"
+      viewBox="95 23 10 154"
     >
       <rect
-        x="24"
-        y="24"
         width="152"
         height="152"
+        x="24"
+        y="24"
+        fill="#1f6f8b"
+        stroke="#f472b6"
         rx="32"
-        fill="#1F6F8B"
-        stroke="#F472B6"
-        strokeWidth="3"
       />
-
-      <g>
-        <circle
-          cx="58"
-          cy="58"
-          r="20"
-          fill="#1F6F8B"
-          stroke="#F472B6"
-          strokeWidth="2.5"
-        />
-        <path
-          d="M 58 48 V 68 M 48 58 H 68"
-          stroke="#F472B6"
-          strokeWidth="3.125"
-          strokeLinecap="round"
-        />
+      <g stroke="#f472b6">
+        <circle cx="58" cy="58" r="20" fill="#1f6f8b" />
+        <path d="M58 48v20M48 58h20" />
       </g>
-
-      <g>
-        <circle
-          cx="142"
-          cy="58"
-          r="20"
-          fill="#1F6F8B"
-          stroke="#F472B6"
-          strokeWidth="2.5"
-        />
-        <line
-          x1="132"
-          y1="58"
-          x2="152"
-          y2="58"
-          stroke="#F472B6"
-          strokeWidth="3.125"
-          strokeLinecap="round"
-        />
+      <g stroke="#f472b6">
+        <circle cx="142" cy="58" r="20" fill="#1f6f8b" />
+        <path d="M132 58h20" />
       </g>
-
-      <g>
-        <circle
-          cx="142"
-          cy="142"
-          r="20"
-          fill="#1F6F8B"
-          stroke="#F472B6"
-          strokeWidth="2.5"
-        />
-        <line
-          x1="132"
-          y1="132"
-          x2="152"
-          y2="152"
-          stroke="#F472B6"
-          strokeWidth="3.125"
-          strokeLinecap="round"
-        />
-        <line
-          x1="152"
-          y1="132"
-          x2="132"
-          y2="152"
-          stroke="#F472B6"
-          strokeWidth="3.125"
-          strokeLinecap="round"
-        />
+      <g stroke="#f472b6">
+        <circle cx="142" cy="142" r="20" fill="#1f6f8b" />
+        <path d="m132 132 20 20m0-20-20 20" />
       </g>
-
-      <g>
-        <circle
-          cx="58"
-          cy="142"
-          r="20"
-          fill="#1F6F8B"
-          stroke="#F472B6"
-          strokeWidth="2.5"
-        />
-        <line
-          x1="48"
-          y1="142"
-          x2="68"
-          y2="142"
-          stroke="#F472B6"
-          strokeWidth="3.125"
-          strokeLinecap="round"
-        />
-        <circle
-          cx="58"
-          cy="134.5"
-          r="2.5"
-          fill="#1F6F8B"
-          stroke="#F472B6"
-          strokeWidth="2.5"
-        />
-        <circle
-          cx="58"
-          cy="149.5"
-          r="2.5"
-          fill="#1F6F8B"
-          stroke="#F472B6"
-          strokeWidth="2.5"
-        />
+      <g stroke="#f472b6">
+        <circle cx="58" cy="142" r="20" fill="#1f6f8b" />
+        <path d="M48 142h20" />
+        <circle cx="58" cy="134.5" r="2.5" fill="#1f6f8b" />
+        <circle cx="58" cy="149.5" r="2.5" fill="#1f6f8b" />
       </g>
     </svg>
   );
