@@ -1,8 +1,8 @@
 export default function Bookicon() {
   return (
     <svg
-      width="100"
-      height="100"
+      width="80"
+      height="80"
       viewBox="20 20 160 150"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"

@@ -2,12 +2,11 @@ export default function Settingsicon() {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 120 120"
-      width="100"
-      height="100"
+      viewBox="54 17.5 20 93"
+      width="80"
+      height="80"
       fill="none"
     >
-      {/* Gear */}
       <g fill="#1F6F8B">
         <rect
           x="18"
@@ -15,7 +14,6 @@ export default function Settingsicon() {
           width="92"
           height="24"
           rx="7"
-          transform="rotate(0 64 64)"
           stroke="#F472B6"
           strokeWidth="2"
         />
@@ -57,7 +55,6 @@ export default function Settingsicon() {
         <circle cx="64" cy="64" r="38" fill="#1F6F8B" />
       </g>
 
-      {/* Center opening */}
       <circle
         cx="64"
         cy="64"
@@ -67,7 +64,6 @@ export default function Settingsicon() {
         strokeWidth="3"
       />
 
-      {/* Inner ring */}
       <circle
         cx="64"
         cy="64"
