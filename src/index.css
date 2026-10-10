@@ -3,13 +3,10 @@
 
 @theme {
   --font-sans: "Lexend", sans-serif;
-  /* Backgrounds: Lower saturation, avoided pure white to reduce glare */
   --bg-primary: #f2f0ea;
   --bg-secondary: #e5e3dd;
   --bg-tertiary: #d6d4ce;
-  --bg-surface: #fcfbfa; /* Off-white, replaces harsh #ffffff */
-
-  /* Text: Softened black to reduce contrast-induced eye strain */
+  --bg-surface: #fcfbfa;
   --text-primary: #242321;
   --text-secondary: #54524f;
   --text-muted: #7d7a76;
@@ -18,22 +15,18 @@
   --text-on-accent: #ffffff;
   --text-on-status: #ffffff;
 
-  /* Borders: Distinct enough to create visual structure and boundaries */
   --border-subtle: #d6d4ce;
   --border-strong: #a8a6a1;
 
-  /* Brand / Primary: Deeper Value for grounding and clear focus */
   --primary-main: #3a6194;
   --primary-hover: #2d4c75;
   --primary-light: #dae3ef;
   --primary-focus: #3a619466;
 
-  /* Accent: Warmer Hue to distinctly separate "actions" from "structure" */
   --accent-main: #658231;
   --accent-hover: #4e6625;
   --accent-soft: #d3dfbe;
 
-  /* Status: Muted saturations to inform without triggering alarm/anxiety */
   --status-error: #b3524d;
   --status-error-hover: #964440;
   --status-warn: #cc9933;
@@ -67,22 +60,22 @@
 } */
 
 .dbg1 {
-  @apply border-4 border-solid border-red-500;
+  @apply border border-solid border-red-500;
 }
 .dbg2 {
-  @apply border-4 border-solid border-black;
+  @apply border border-solid border-black;
 }
 .dbg3 {
-  @apply border-4 border-solid border-yellow-500;
+  @apply border border-solid border-yellow-500;
 }
 .dbg4 {
-  @apply border-4 border-solid border-green-500;
+  @apply border border-solid border-green-500;
 }
 .dbg5 {
-  @apply border-4 border-solid border-blue-500;
+  @apply border border-solid border-blue-500;
 }
 .dbg6 {
-  @apply border-4 border-solid border-purple-500;
+  @apply border border-solid border-purple-500;
 }
 
 .svgparent {
@@ -93,12 +86,12 @@
 .svgparent:hover #plus1 {
   transition: all 500ms ease-in;
   opacity: 1;
-  stroke: #F472B6;
+  stroke: #f472b6;
   transform: translateY(-70px);
 }
 
 .svgparent:hover #plus2 {
-  stroke: #F472B6;
+  stroke: #f472b6;
   transition: all 500ms ease-in 200ms;
   transform: translateY(-70px);
 }
@@ -131,12 +124,25 @@
   overflow: hidden;
   border-radius: 70px;
   background-color: #ffffff;
-  border-style: solid;
-  border-color: #00ff15;
-  border-width: 0.5rem;
   color: #ffffff;
+}
+
+.cardfeatures:hover .cardfeatures_more {
+  opacity: 1;
+  transition: all 500ms ease-in;
 }
 
 .cardfeatures_wrapper:has(.cardfeatures:hover) {
   grid-template-columns: 50% repeat(3, 1fr);
+}
+
+.linehover {
+  transform: scaleX(0);
+  background-color: black;
+  height: 4px;
+  transition: all 500ms;
+}
+
+.iconhover:hover .linehover {
+  transform: scale(1);
 }
