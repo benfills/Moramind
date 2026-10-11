@@ -19,7 +19,6 @@ export default function Dashboard() {
     const dbottom = bottombook - event.clientY;
     const dtop = event.clientY - topbook;
     const nearest = Math.min(dleft, dright, dbottom, dtop);
-    console.log({ dleft, dright, dtop, dbottom, nearest });
     if (nearest === dbottom || nearest === dtop) {
       if (linehover.current) {
         linehover.current.style.transformOrigin = "center";
@@ -40,7 +39,7 @@ export default function Dashboard() {
         <div className="flex h-full w-1/3 place-items-center gap-10 pl-6">
           <div className="iconhover" ref={iconhover} onMouseEnter={slideeffect}>
             <Bookicon />
-            <div className="linehover" ref={linehover}/>
+            <div className="linehover" ref={linehover} />
           </div>
           <div className="iconhover">
             <Productivityicon />
@@ -52,14 +51,13 @@ export default function Dashboard() {
           </div>
         </div>
         <div className="h-full w-full">
-          <div className="absolute top-1/2 left-1/2 h-1/2 w-96 translate-[-50%] rounded-full transition-[background-color_0.5s_ease,blur_10s_ease] hover:bg-[rgba(0,229,255,0.12)] hover:blur-[20px]" />
-          {/* to be continued */}
-          <h1 className="pointer-events-none absolute top-1/2 left-1/2 flex translate-[-50%] items-center justify-center font-extrabold text-[#FFFFFF] transition-all duration-500 ease-in hover:text-shadow-[1px_0px_2px_#00E5FF,-1px_0px_2px_#00E5FF,0px_1px_2px_#00E5FF,0px_-1px_2px_#00E5FF]">
+          {/* transition-colors duration-500 ease-in-out */}
+          <div className="absolute top-1/4 left-[37%] h-1/2 w-96  rounded-full bg-transparent blur-none transition-all duration-500 ease-in-out hover:bg-[rgba(0,229,255,0.12)] hover:blur-[15px]" />
+          <h1 className="pointer-events-none absolute top-1/2 left-1/2 flex translate-[-50%] items-center justify-center font-extrabold text-[#FFFFFF] transition-all duration-500 ease-in">
             Moramind
           </h1>
         </div>
         <div className="flex h-full w-1/3 place-items-center gap-10 pr-6">
-          {/* to be continued */}
           <div className="iconhover">
             <Aichatboxicon />
             <div className="linehover" />
@@ -77,7 +75,7 @@ export default function Dashboard() {
       <div className="cardfeatures_wrapper">
         <div className="cardfeatures">
           <p className="col-[1/3] bg-amber-500 text-center">Pomodoro Timer</p>
-          <button className="cardfeatures_more col-[2/3] row-[2/3] bg-slate-700 wrap-break-word opacity-0 transition-opacity duration-200 ease-linear hover:opacity-100">
+          <button className="cardfeatures_more col-[2/3] row-[2/3] bg-slate-700 wrap-break-word sm:opacity-0 transition-opacity duration-200 ease-linear hover:opacity-100">
             Read more
           </button>
         </div>

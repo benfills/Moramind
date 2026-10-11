@@ -140,7 +140,7 @@
   transform: scaleX(0);
   background-color: black;
   height: 4px;
-  transition: all 500ms;
+  transition: all 250ms;
 }
 
 .iconhover:hover .linehover {
