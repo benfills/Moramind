@@ -2,11 +2,9 @@ import "../index.css";
 
 export default function Productivityicon() {
   return (
-    <div className="relative">
+    <div className="relative size-14 lg:size-20">
       <svg
-        viewBox="42 60 116 105"
-        width="80"
-        height="80"
+        viewBox="39 51.5 122 122"
         xmlns="http://www.w3.org/2000/svg"
         role="img"
         fill="none"
