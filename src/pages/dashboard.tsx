@@ -4,10 +4,8 @@ import journalicon from "../assets/journalicon.svg";
 import mathicon from "../assets/mathicon.svg";
 import Productivityicon from "../assets/productivityicon";
 import settingsicon from "../assets/settingsicon.svg";
-import { useRef } from "react";
 
 export default function Dashboard() {
-  const linehover = useRef(null);
   const linehoverpoint = null;
   const slideeffect = (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
     const leftbook = event.currentTarget.getBoundingClientRect().left;
