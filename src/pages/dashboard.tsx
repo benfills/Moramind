@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import aichatboxicon from "../assets/aichatboxicon.svg";
 import bookicon from "../assets/bookicon.svg";
 import journalicon from "../assets/journalicon.svg";
@@ -6,7 +7,6 @@ import Productivityicon from "../assets/productivityicon";
 import settingsicon from "../assets/settingsicon.svg";
 
 export default function Dashboard() {
-  const linehoverpoint = null;
   const slideeffect = (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
     const leftbook = event.currentTarget.getBoundingClientRect().left;
     const rightbook = event.currentTarget.getBoundingClientRect().right;
@@ -17,13 +17,16 @@ export default function Dashboard() {
     const dbottom = bottombook - event.clientY;
     const dtop = event.clientY - topbook;
     const nearest = Math.min(dleft, dright, dbottom, dtop);
+    const linehover = event.currentTarget.querySelector(
+      ".linehover",
+    ) as HTMLElement;
     // Goal: How can I ensure that the identifier for linehover is also dynamic, depending on the element currently being hovered over?
     if (nearest === dbottom || nearest === dtop) {
-      event.currentTarget.style.transformOrigin = "center";
+      linehover.style.transformOrigin = "center";
     } else if (nearest === dleft) {
-      event.currentTarget.style.transformOrigin = "left";
+      linehover.style.transformOrigin = "left";
     } else if (nearest === dright) {
-      event.currentTarget.style.transformOrigin = "right";
+      linehover.style.transformOrigin = "right";
     }
   };
   return (
@@ -32,15 +35,15 @@ export default function Dashboard() {
         <div className="flex h-full flex-1 place-items-center gap-4 pl-6 lg:gap-10">
           <div className="iconhover shrink-0" onMouseEnter={slideeffect}>
             <img src={bookicon} className="size-14 max-w-none lg:size-20" />
-            <div className="linehover" ref={linehoverpoint} />
+            <div className="linehover" />
           </div>
           <div className="iconhover shrink-0" onMouseEnter={slideeffect}>
             <Productivityicon />
-            <div className="linehover" ref={linehoverpoint} />
+            <div className="linehover" />
           </div>
           <div className="iconhover shrink-0" onMouseEnter={slideeffect}>
             <img src={journalicon} className="size-14 max-w-none lg:size-20" />
-            <div className="linehover" ref={linehoverpoint} />
+            <div className="linehover" />
           </div>
         </div>
 
@@ -56,15 +59,15 @@ export default function Dashboard() {
               src={aichatboxicon}
               className="size-14 max-w-none lg:size-20"
             />
-            <div className="linehover" ref={linehoverpoint} />
+            <div className="linehover" />
           </div>
           <div className="iconhover shrink-0" onMouseEnter={slideeffect}>
             <img src={mathicon} className="size-14 max-w-none lg:size-20" />
-            <div className="linehover" ref={linehoverpoint} />
+            <div className="linehover" />
           </div>
           <div className="iconhover shrink-0" onMouseEnter={slideeffect}>
             <img src={settingsicon} className="size-14 max-w-none lg:size-20" />
-            <div className="linehover" ref={linehoverpoint} />
+            <div className="linehover" />
           </div>
         </div>
       </div>
