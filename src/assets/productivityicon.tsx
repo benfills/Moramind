@@ -4,7 +4,7 @@ export default function Productivityicon() {
   return (
     <div className="relative size-14 lg:size-20">
       <svg
-        viewBox="39 51.5 122 122"
+        viewBox="39 51.5 133 133"
         xmlns="http://www.w3.org/2000/svg"
         role="img"
         fill="none"
