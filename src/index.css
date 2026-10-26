@@ -137,12 +137,19 @@
 }
 
 .linehover {
-  transform: scaleX(0);
-  background-color: black;
+  position: absolute;
+  top: 10;
+  left: 0;
+  bottom: 0;
+  right: 0;
   height: 4px;
-  transition: all 250ms;
+  transform: scaleX(0);
+  background-color: #1F6F8B;
+  opacity: 0;
+  transition: transform 250ms ease-in, opacity 250ms ease-in;
 }
 
 .iconhover:hover .linehover {
-  transform: scale(1);
+  transform: scaleX(1);
+  opacity: 1;
 }
